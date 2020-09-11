@@ -21,36 +21,30 @@ static node_struct* head;
 // you will need to maintain the links and properly place the new element
 void insert_in_order(node_struct* new_element) {
 
-	printf("New elem val      %d\n",new_element->value);
 
-  if(new_element = NULL){
+  if(new_element == NULL){
     printf("invalid insert\n");
     return;
   }
 
   if(!head)
   {
-    printf("appending to empty list\n");
- 
-//    new_element->next = malloc(sizeof(node_struct*));
-    (node_struct*) (new_element->next) = NULL;
     head = new_element;   
-    // printf("New head ptr:    %x\n", head);
     return;
   }
-
-//  if(new_element->value < head->value)
-//  {
-//    new_element->next = head;
-//    head = new_element;
-//  }  else  {
-//    node_struct* temp_head = head;
-//    while((temp_head->next != NULL) && (new_element->value > temp_head->next->value))
-//      temp_head = temp_head->next;
-//
-//    new_element->next = temp_head->next;
-//   temp_head->next = new_element; 
-//  }
+    
+  if(new_element->value < head->value)
+  {
+    new_element->next = head;
+    head = new_element;
+  }  else  {
+    node_struct* temp_head = head;
+    while((temp_head->next != NULL) && (new_element->value > temp_head->next->value))
+      temp_head = temp_head->next;
+    
+    new_element->next = temp_head->next;
+    temp_head->next = new_element; 
+  }
 }
 
 // this function creates a new entry into the list to be inserted
