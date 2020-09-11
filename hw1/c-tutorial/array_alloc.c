@@ -15,9 +15,17 @@ int main()
 	// print array using ptrs
 	for(int i = 7; i >= 0; i--)
 	{
-		printf("%d\n", *(data - i));
+		printf("%d\n", *(ptr2 - i));
 	}
 
+	printf("------\n");
+
+	int **ptr3 = &ptr2;
+	for(int i = 7; i >= 0; i--)
+	{
+		printf("%d\n", *(*ptr3 - i));
+	}
+	
 }
 
 
