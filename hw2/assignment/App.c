@@ -106,6 +106,9 @@ int main()
   puts("Application completed successfully.");
 
   total_time.stop();
+  std::cout << "Total time taken by the loop is: " << total_time.latency() << " ns." << std::endl;
+  std::cout << "---------------------------------------------------------------" << std::endl;
+  std::cout << "Average latency of each loop iteration is: " << total_time.avg_latency() << " ns." << std::endl;
   return EXIT_SUCCESS;
 }
 
