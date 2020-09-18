@@ -123,11 +123,11 @@ int main()
   puts("Application completed successfully.");
 
   total_time.stop();
-  std::cout << "Total time taken by the loop is     : " << total_time.latency()     << " ns." << std::endl;
-  std::cout << "Total time taken by scale is        : " << scale_time.latency()     << " ns." << std::endl;
-  std::cout << "Total time taken by filter is       : " << filter_time.latency()    << " ns." << std::endl;
-  std::cout << "Total time taken by differentiate is: " << diff_time.latency()      << " ns." << std::endl;
-  std::cout << "Total time taken by compress is     : " << compress_time.latency()  << " ns." << std::endl;
+  std::cout << "Total time taken by the loop is           : " << total_time.latency()     << " ns." << std::endl;
+  std::cout << "Total time taken by scale is              : " << scale_time.latency()     << " ns." << std::endl;
+  std::cout << "Total time taken by filter is             : " << filter_time.latency()    << " ns." << std::endl;
+  std::cout << "Total time taken by differentiate is      : " << diff_time.latency()      << " ns." << std::endl;
+  std::cout << "Total time taken by compress is           : " << compress_time.latency()  << " ns." << std::endl;
   std::cout << "---------------------------------------------------------------" << std::endl;
   std::cout << "Average latency of each loop iteration is : " << total_time.avg_latency()     << " ns." << std::endl;
   std::cout << "Average latency of scale is               : " << scale_time.avg_latency()     << " ns." << std::endl;
