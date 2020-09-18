@@ -80,6 +80,10 @@ void Store_data(const char * Filename, int Stage, unsigned int Size)
 int main()
 {
   stopwatch total_time;
+  stopwatch scale_time;
+  stopwatch filter_time;
+  stopwatch diff_time;
+  stopwatch compress_time;
   total_time.start();
 
   for (int i = 0; i <= STAGES; i++)
@@ -94,10 +98,23 @@ int main()
 
   
   Load_data();
+
+  scale_time.start();
   Scale(Data[0], Data[1]);
+  scale_time.stop();
+
+  filter_time.start();
   Filter(Data[1], Data[2]);
+  filter_time.stop();
+
+  diff_time.start();
   Differentiate(Data[2], Data[3]);
+  diff_time.stop();
+
+  compress_time.start();
   int Size = Compress(Data[3], Data[4]);
+  compress_time.stop();
+
   Store_data("Output.bin", 4, Size);
 
   for (int i = 0; i <= STAGES; i++)
@@ -106,9 +123,17 @@ int main()
   puts("Application completed successfully.");
 
   total_time.stop();
-  std::cout << "Total time taken by the loop is: " << total_time.latency() << " ns." << std::endl;
+  std::cout << "Total time taken by the loop is     : " << total_time.latency()     << " ns." << std::endl;
+  std::cout << "Total time taken by scale is        : " << scale_time.latency()     << " ns." << std::endl;
+  std::cout << "Total time taken by filter is       : " << filter_time.latency()    << " ns." << std::endl;
+  std::cout << "Total time taken by differentiate is: " << diff_time.latency()      << " ns." << std::endl;
+  std::cout << "Total time taken by compress is     : " << compress_time.latency()  << " ns." << std::endl;
   std::cout << "---------------------------------------------------------------" << std::endl;
-  std::cout << "Average latency of each loop iteration is: " << total_time.avg_latency() << " ns." << std::endl;
+  std::cout << "Average latency of each loop iteration is : " << total_time.avg_latency()     << " ns." << std::endl;
+  std::cout << "Average latency of scale is               : " << scale_time.avg_latency()     << " ns." << std::endl;
+  std::cout << "Average latency of filter is              : " << filter_time.avg_latency()    << " ns." << std::endl;
+  std::cout << "Average latency of differentiate is       : " << diff_time.avg_latency()      << " ns." << std::endl;
+  std::cout << "Average latency of compress is            : " << compress_time.avg_latency()  << " ns." << std::endl;
   return EXIT_SUCCESS;
 }
 
