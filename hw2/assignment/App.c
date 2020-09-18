@@ -79,6 +79,9 @@ void Store_data(const char * Filename, int Stage, unsigned int Size)
 
 int main()
 {
+  stopwatch total_time;
+  total_time.start();
+
   for (int i = 0; i <= STAGES; i++)
   {
     // We could strictly allocate less memory for some of these buffers, but
@@ -87,6 +90,9 @@ int main()
     if (Data[i] == NULL)
       Exit_with_error();
   }
+ 
+
+  
   Load_data();
   Scale(Data[0], Data[1]);
   Filter(Data[1], Data[2]);
@@ -99,6 +105,7 @@ int main()
 
   puts("Application completed successfully.");
 
+  total_time.stop();
   return EXIT_SUCCESS;
 }
 
