@@ -42,7 +42,7 @@ int main()
 
     // Filter parallel
 
-    std::vector<std::thread> ths;
+    ths.clear();
     
     ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], 0, OUTPUT_HEIGHT_FILTER/2);
     ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], OUTPUT_HEIGHT_FILTER/2, OUTPUT_HEIGHT_FILTER);
