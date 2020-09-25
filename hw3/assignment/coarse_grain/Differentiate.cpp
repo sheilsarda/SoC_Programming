@@ -1,9 +1,9 @@
 #define HEIGHT (264)
 #define WIDTH (474)
 
-void Differentiate(const unsigned char *Input, unsigned char *Output)
+void Differentiate(const unsigned char *Input, unsigned char *Output, int Y_Start_Idx, int Y_End_Idx)
 {
-  for (int Y = 0; Y < HEIGHT; Y++)
+  for (int Y = Y_Start_Idx; Y < Y_End_Idx; Y += 2)
     for (int X = 0; X < WIDTH; X++)
     {
       int Average = 0;

@@ -278,9 +278,9 @@ int Code_lengths[] =
 static int Length = 0;
 static int Byte = 0;
 
-int Compress(const unsigned char *Input, unsigned char *Output)
+int Compress(const unsigned char *Input, unsigned char *Output, int Size_Start_Idx, int Size_End_Idx)
 {
-  for (int i = 0; i < SIZE; i++)
+  for (int i = Size_Start_Idx; i < Size_End_Idx; i++)
   {
     unsigned long long Code = Codes[Input[i]];
     int Code_length = Code_lengths[Input[i]];

@@ -43,3 +43,27 @@ void Filter(const unsigned char *Input, unsigned char *Output)
 
   free(Temp);
 }
+
+void Filter_horizontal_coarse(const unsigned char *Input, unsigned char *Output, int Y_Start_Idx, int Y_End_Idx)
+{
+  for (int Y = Y_Start_Idx; Y < Y_End_Idx; Y += 2)
+    for (int X = 0; X < OUTPUT_WIDTH; X++)
+    {
+      unsigned int Sum = 0;
+      for (int i = 0; i < FILTER_LENGTH; i++)
+        Sum += Coefficients[i] * Input[Y * INPUT_WIDTH + X + i];
+      Output[Y * OUTPUT_WIDTH + X] = Sum >> 8;
+    }
+}
+
+void Filter_vertical_coarse(const unsigned char *Input, unsigned char *Output, int Y_Start_Idx, int Y_End_Idx)
+{
+  for (int Y = Y_Start_Idx; Y < Y_End_Idx; Y += 2)
+    for (int X = 0; X < OUTPUT_WIDTH; X++)
+    {
+      unsigned int Sum = 0;
+      for (int i = 0; i < FILTER_LENGTH; i++)
+        Sum += Coefficients[i] * Input[(Y + i) * OUTPUT_WIDTH + X];
+      Output[Y * OUTPUT_WIDTH + X] = Sum >> 8;
+    }
+}
