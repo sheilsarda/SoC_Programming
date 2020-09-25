@@ -1,5 +1,5 @@
 #define SIZE (264 * 474)
-
+#include "App.h"
 unsigned long long int Codes[] =
     {
         0b11,

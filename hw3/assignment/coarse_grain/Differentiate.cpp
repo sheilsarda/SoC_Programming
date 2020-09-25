@@ -1,3 +1,4 @@
+#include "App.h"
 #define HEIGHT (264)
 #define WIDTH (474)
 

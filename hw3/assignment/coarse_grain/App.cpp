@@ -1,6 +1,14 @@
-#include "App.h"
+#include "../common/App.h"
 
 #define STAGES (4)
+
+/*
+/tmp/ccfRTQvb.o: In function `main':
+/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:58: undefined reference to `Differentiate(unsigned char const*, unsigned char*)'
+/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:59: undefined reference to `Compress(unsigned char const*, unsigned char*)'
+collect2: error: ld returned 1 exit status
+make: *** [coarse] Error 1
+*/
 
 int main()
 {
@@ -41,7 +49,6 @@ int main()
     }
 
     // Filter parallel
-
     ths.clear();
     
     ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], 0, OUTPUT_HEIGHT_FILTER/2));
