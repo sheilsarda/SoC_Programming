@@ -44,8 +44,8 @@ int main()
 
     ths.clear();
     
-    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], 0, OUTPUT_HEIGHT_FILTER/2);
-    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], OUTPUT_HEIGHT_FILTER/2, OUTPUT_HEIGHT_FILTER);
+    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], 0, OUTPUT_HEIGHT_FILTER/2));
+    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], OUTPUT_HEIGHT_FILTER/2, OUTPUT_HEIGHT_FILTER));
 
     pin_thread_to_cpu(ths[0], 0);
     pin_thread_to_cpu(ths[1], 1);
