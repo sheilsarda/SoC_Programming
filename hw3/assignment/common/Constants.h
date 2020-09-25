@@ -7,4 +7,7 @@
 #define FRAMES (100)
 #define MAX_OUTPUT_SIZE (5000 * 1024)
 
+
+#define OUTPUT_HEIGHT_FILTER (270 - (7 - 1))
+
 #endif
