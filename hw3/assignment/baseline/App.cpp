@@ -1,78 +1,12 @@
 #include "App.h"
-#include "Stopwatch.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <iostream>
-
-#define FRAME_SIZE (960 * 540)
-#define FRAMES (10)
 #define STAGES (4)
-#define MAX_OUTPUT_SIZE (500 * 1024)
-
-void Exit_with_error(void)
-{
-  perror(NULL);
-  exit(EXIT_FAILURE);
-}
-
-void Load_data(unsigned char * Data)
-{
-  int Size = FRAMES * FRAME_SIZE;
-
-  FILE * File = fopen("../data/Input.bin", "rb");
-  if (File == NULL)
-    Exit_with_error();
-
-  if (fread(Data, 1, Size, File) != Size)
-    Exit_with_error();
-
-  if (fclose(File) != 0)
-    Exit_with_error();
-}
-
-void Store_data(const char * Filename, unsigned char * Data, int Size)
-{
-  FILE * File = fopen(Filename, "wb");
-  if (File == NULL)
-    Exit_with_error();
-
-  if (fwrite(Data, 1, Size, File) != Size)
-    Exit_with_error();
-
-  if (fclose(File) != 0)
-    Exit_with_error();
-}
-
-int Check_data(unsigned char * Data, int Size)
-{
-  unsigned char *Data_golden = (unsigned char *)malloc(MAX_OUTPUT_SIZE);
-  FILE * File = fopen("../data/Golden.bin", "rb");
-  if (File == NULL)
-    Exit_with_error();
-
-  if (fread(Data_golden, 1, Size, File) != Size)
-    Exit_with_error();
-
-  if (fclose(File) != 0)
-    Exit_with_error();
-
-  for(int i=0; i<Size; i++){
-    if(Data_golden[i] != Data[i]){
-      free(Data_golden);
-      return i+1;
-    }
-  }
-
-  free(Data_golden);
-  return 0;
-}
 
 int main()
 {
-  unsigned char * Input_data = (unsigned char *)malloc(FRAMES * FRAME_SIZE);
-  unsigned char * Temp_data[STAGES - 1];
-  unsigned char * Output_data = (unsigned char *)malloc(MAX_OUTPUT_SIZE);
+  unsigned char *Input_data = (unsigned char *)malloc(FRAMES * FRAME_SIZE);
+  unsigned char *Temp_data[STAGES - 1];
+  unsigned char *Output_data = (unsigned char *)malloc(MAX_OUTPUT_SIZE);
 
   for (int Stage = 0; Stage < STAGES - 1; Stage++)
   {
@@ -125,19 +59,12 @@ int main()
   std::cout << "Average latency of each loop iteration is: " << total_time.avg_latency() << " ns." << std::endl;
 
   Store_data("Output.bin", Output_data, Size);
-
-  free(Input_data);
+  Check_data(Output_data, Size);
 
   for (int i = 0; i < STAGES - 1; i++)
     free(Temp_data[i]);
-
-  int check_result = Check_data(Output_data, Size);
-  if( check_result != 0){
-	  printf("You got errors in data %d\n", check_result);
-  }else{
-	  printf("Application completed successfully.\n");
-  }
-
+  free(Input_data);
   free(Output_data);
+
   return EXIT_SUCCESS;
 }
