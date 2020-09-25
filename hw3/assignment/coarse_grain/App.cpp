@@ -40,7 +40,21 @@ int main()
       th.join();
     }
 
-    Filter(Temp_data[0], Temp_data[1]);
+    // Filter parallel
+
+    std::vector<std::thread> ths;
+    
+    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], 0, OUTPUT_HEIGHT_FILTER/2);
+    ths.push_back(std::thread(&Filter_coarse, Temp_data[0], Temp_data[1], OUTPUT_HEIGHT_FILTER/2, OUTPUT_HEIGHT_FILTER);
+
+    pin_thread_to_cpu(ths[0], 0);
+    pin_thread_to_cpu(ths[1], 1);
+
+    for (auto &th : ths)
+    {
+      th.join();
+    }
+
     Differentiate(Temp_data[1], Temp_data[2]);
     Size = Compress(Temp_data[2], Output_data);
   }

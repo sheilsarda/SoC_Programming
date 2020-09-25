@@ -67,3 +67,13 @@ void Filter_vertical_coarse(const unsigned char *Input, unsigned char *Output, i
       Output[Y * OUTPUT_WIDTH + X] = Sum >> 8;
     }
 }
+
+void Filter_coarse(const unsigned char *Input, unsigned char *Output, int Y_Start_Idx, int Y_End_Idx)
+{
+  unsigned char *Temp = (unsigned char *)malloc(INPUT_HEIGHT * OUTPUT_WIDTH);
+
+  Filter_horizontal_coarse(Input, Temp, Y_Start_Idx, Y_End_Idx);
+  Filter_vertical(Temp, Output);
+
+  free(Temp);
+}
