@@ -1,11 +1,13 @@
-#include "../common/App.h"
+#include "App.h"
 
 #define STAGES (4)
 
 /*
-/tmp/ccfRTQvb.o: In function `main':
-/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:58: undefined reference to `Differentiate(unsigned char const*, unsigned char*)'
-/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:59: undefined reference to `Compress(unsigned char const*, unsigned char*)'
+[ec2-user@ip-172-31-88-205 assignment]$ make coarse
+g++ -std=c++11 -Wall -O2 -g -DNDEBUG -pthread -I./common coarse_grain/App.cpp coarse_grain/Compress.cpp coarse_grain/Differentiate.cpp coarse_grain/Scale.cpp coarse_grain/Filter.cpp common/Utilities.cpp -o coarse -lpthread -pthread
+/tmp/ccXXmmpm.o: In function `main':
+/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:65: undefined reference to `Differentiate(unsigned char const*, unsigned char*)'
+/home/ec2-user/ESE532_Projects/hw3/assignment/coarse_grain/App.cpp:66: undefined reference to `Compress(unsigned char const*, unsigned char*)'
 collect2: error: ld returned 1 exit status
 make: *** [coarse] Error 1
 */
