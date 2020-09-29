@@ -22,4 +22,4 @@ example: $(EXAMPLE_SRC)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 
 clean:
-	$(RM) -rf perf* *.bin *.txt *.dSYM *.out *.o *~ $(EXECUTABLES)
+	$(RM) -rf perf* *.bin *.dSYM *.out *.o *~ $(EXECUTABLES)
