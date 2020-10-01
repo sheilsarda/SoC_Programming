@@ -1,0 +1,14 @@
+Total latency of Scale is: 1.56163e+07 ns.
+Total latency of Filter_horizontal is: 1.75546e+07 ns.
+Total latency of Filter_vertical is: 1.79408e+07 ns.
+Total latency of Differentiate is: 3.30352e+07 ns.
+Total latency of Compress is: 1.50277e+08 ns.
+Total time taken by the loop is: 2.34495e+08 ns.
+---------------------------------------------------------------
+Average latency of Scale per loop iteration is: 156163 ns.
+Average latency of Filter_horizontal per loop iteration is: 175546 ns.
+Average latency of Filter_vertical per loop iteration is: 179408 ns.
+Average latency of Differentiate per loop iteration is: 330352 ns.
+Average latency of Compress per loop iteration is: 1.50277e+06 ns.
+Average latency of each loop iteration is: 2.34495e+06 ns.
+Application completed successfully.
