@@ -76,7 +76,7 @@ void Filter_vertical(const unsigned char *Input, unsigned char *Output)
   for (int Y = 0; Y < OUTPUT_HEIGHT; Y++)
     for (int X = 0; X < OUTPUT_WIDTH; X++)
     {
-      unsigned int Sum = 0;
+      unsigned short int Sum = 0;
       for (int i = 0; i < FILTER_LENGTH; i++)
         Sum += Coefficients[i] * Input[(Y + i) * OUTPUT_WIDTH + X];
       Output[Y * OUTPUT_WIDTH + X] = Sum >> 8;
