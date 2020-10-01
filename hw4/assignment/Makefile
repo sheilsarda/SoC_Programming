@@ -20,7 +20,7 @@ neon_filter: $(SRC)
 	$(CXX) -DVECTORIZED $(CXXFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
 
 example: $(EXAMPLE_SRC)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o $@ $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -o -fno-tree-vectorize $@ $(LDFLAGS)
 
 clean:
 	$(RM) -rf perf* *.bin *.dSYM *.out *.o *~ $(EXECUTABLES)
