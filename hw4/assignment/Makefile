@@ -1,5 +1,6 @@
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -O3 -mcpu=native -fno-tree-vectorize -DNDEBUG -pthread
+# CXXFLAGS = -std=c++11 -Wall -O3 -mcpu=native -fno-tree-vectorize -DNDEBUG -pthread
+CXXFLAGS = -std=c++11 -Wall -O3 -mcpu=native -DNDEBUG -pthread
 LDFLAGS = -lpthread -pthread
 INCLUDES = -I./common
 
