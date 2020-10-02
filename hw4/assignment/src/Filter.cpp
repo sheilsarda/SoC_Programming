@@ -7,6 +7,7 @@
 
 #define OUTPUT_HEIGHT (INPUT_HEIGHT - (FILTER_LENGTH - 1))
 #define OUTPUT_WIDTH (INPUT_WIDTH - (FILTER_LENGTH - 1))
+#define VECTORIZED
 
 unsigned Coefficients[] = {2, 15, 62, 98, 62, 15, 2};
 
