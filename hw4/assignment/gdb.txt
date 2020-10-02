@@ -1,359 +1,102 @@
-Temporary breakpoint 1 at 0x400c68
 Starting program: /home/ec2-user/ese532_code/hw4/assignment/neon_filter 
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/lib64/libthread_db.so.1".
 
-Temporary breakpoint 1, 0x0000000000400c68 in main ()
-Dump of assembler code for function main:
-   0x0000000000400c60 <+0>:	stp	x29, x30, [sp, #-432]!
-   0x0000000000400c64 <+4>:	mov	x0, #0x400                 	// #1024
-=> 0x0000000000400c68 <+8>:	movk	x0, #0x317, lsl #16
-   0x0000000000400c6c <+12>:	mov	x29, sp
-   0x0000000000400c70 <+16>:	stp	x19, x20, [sp, #16]
-   0x0000000000400c74 <+20>:	mov	x20, #0xe900                	// #59648
-   0x0000000000400c78 <+24>:	movk	x20, #0x7, lsl #16
-   0x0000000000400c7c <+28>:	stp	x21, x22, [sp, #32]
-   0x0000000000400c80 <+32>:	mov	x19, #0x0                   	// #0
-   0x0000000000400c84 <+36>:	stp	x23, x24, [sp, #48]
-   0x0000000000400c88 <+40>:	stp	x25, x26, [sp, #64]
-   0x0000000000400c8c <+44>:	stp	x27, x28, [sp, #80]
-   0x0000000000400c90 <+48>:	stp	d8, d9, [sp, #96]
-   0x0000000000400c94 <+52>:	stp	d10, d11, [sp, #112]
-   0x0000000000400c98 <+56>:	stp	d12, d13, [sp, #128]
-   0x0000000000400c9c <+60>:	stp	d14, d15, [sp, #144]
-   0x0000000000400ca0 <+64>:	bl	0x400bb0 <malloc@plt>
-   0x0000000000400ca4 <+68>:	str	x0, [x29, #160]
-   0x0000000000400ca8 <+72>:	mov	x0, #0x2000                	// #8192
-   0x0000000000400cac <+76>:	movk	x0, #0x4e, lsl #16
-   0x0000000000400cb0 <+80>:	bl	0x400bb0 <malloc@plt>
-   0x0000000000400cb4 <+84>:	mov	x23, x0
-   0x0000000000400cb8 <+88>:	mov	x0, x20
-   0x0000000000400cbc <+92>:	bl	0x400bb0 <malloc@plt>
-   0x0000000000400cc0 <+96>:	add	x1, x29, #0xd0
-   0x0000000000400cc4 <+100>:	str	x0, [x1, x19, lsl #3]
-   0x0000000000400cc8 <+104>:	add	x19, x19, #0x1
-   0x0000000000400ccc <+108>:	cbz	x0, 0x4011d4 <main+1396>
-   0x0000000000400cd0 <+112>:	cmp	x19, #0x4
-   0x0000000000400cd4 <+116>:	b.ne	0x400cb8 <main+88>  // b.any
-   0x0000000000400cd8 <+120>:	ldr	x25, [x29, #160]
-   0x0000000000400cdc <+124>:	movi	d14, #0x0
-   0x0000000000400ce0 <+128>:	fmov	d8, #1.000000000000000000e+00
-   0x0000000000400ce4 <+132>:	mov	x24, #0x400                 	// #1024
-   0x0000000000400ce8 <+136>:	movk	x24, #0x317, lsl #16
-   0x0000000000400cec <+140>:	mov	x0, x25
-   0x0000000000400cf0 <+144>:	mov	x28, x25
-   0x0000000000400cf4 <+148>:	bl	0x401ea0 <_Z9Load_dataPh>
-   0x0000000000400cf8 <+152>:	ldp	x22, x21, [x29, #208]
-   0x0000000000400cfc <+156>:	fmov	d10, d14
-   0x0000000000400d00 <+160>:	fmov	d11, d14
-   0x0000000000400d04 <+164>:	fmov	d12, d14
-   0x0000000000400d08 <+168>:	fmov	d15, d14
-   0x0000000000400d0c <+172>:	add	x24, x25, x24
-   0x0000000000400d10 <+176>:	ldp	x20, x19, [x29, #224]
-   0x0000000000400d14 <+180>:	fmov	d13, d14
-   0x0000000000400d18 <+184>:	fmov	d9, d14
-   0x0000000000400d1c <+188>:	stp	d14, d14, [x29, #168]
-   0x0000000000400d20 <+192>:	stp	d14, d14, [x29, #184]
-   0x0000000000400d24 <+196>:	str	d14, [x29, #200]
-   0x0000000000400d28 <+200>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400d2c <+204>:	ldr	d0, [x29, #176]
-   0x0000000000400d30 <+208>:	mov	x27, x0
-   0x0000000000400d34 <+212>:	str	x0, [x29, #416]
-   0x0000000000400d38 <+216>:	fadd	d0, d0, d8
-   0x0000000000400d3c <+220>:	str	d0, [x29, #176]
-   0x0000000000400d40 <+224>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400d44 <+228>:	fadd	d15, d15, d8
-   0x0000000000400d48 <+232>:	mov	x1, x22
-   0x0000000000400d4c <+236>:	mov	x25, x0
-   0x0000000000400d50 <+240>:	str	x0, [x29, #256]
-   0x0000000000400d54 <+244>:	mov	x0, x28
-   0x0000000000400d58 <+248>:	add	x28, x28, #0x7e, lsl #12
-   0x0000000000400d5c <+252>:	add	x28, x28, #0x900
-   0x0000000000400d60 <+256>:	bl	0x401580 <_Z5ScalePKhPh>
-   0x0000000000400d64 <+260>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400d68 <+264>:	sub	x25, x0, x25
-   0x0000000000400d6c <+268>:	str	x0, [x29, #264]
-   0x0000000000400d70 <+272>:	scvtf	d0, x25
-   0x0000000000400d74 <+276>:	fadd	d13, d13, d0
-   0x0000000000400d78 <+280>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400d7c <+284>:	ldr	d0, [x29, #192]
-   0x0000000000400d80 <+288>:	mov	x1, x21
-   0x0000000000400d84 <+292>:	mov	x25, x0
-   0x0000000000400d88 <+296>:	str	x0, [x29, #288]
-   0x0000000000400d8c <+300>:	mov	x0, x22
-   0x0000000000400d90 <+304>:	fadd	d0, d0, d8
-   0x0000000000400d94 <+308>:	str	d0, [x29, #192]
-   0x0000000000400d98 <+312>:	bl	0x4015d0 <_Z17Filter_horizontalPKhPh>
-   0x0000000000400d9c <+316>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400da0 <+320>:	sub	x25, x0, x25
-   0x0000000000400da4 <+324>:	str	x0, [x29, #296]
-   0x0000000000400da8 <+328>:	scvtf	d0, x25
-   0x0000000000400dac <+332>:	fadd	d12, d12, d0
-   0x0000000000400db0 <+336>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400db4 <+340>:	ldr	d0, [x29, #200]
-   0x0000000000400db8 <+344>:	mov	x1, x20
-   0x0000000000400dbc <+348>:	mov	x25, x0
-   0x0000000000400dc0 <+352>:	str	x0, [x29, #320]
-   0x0000000000400dc4 <+356>:	mov	x0, x21
-   0x0000000000400dc8 <+360>:	fadd	d0, d0, d8
-   0x0000000000400dcc <+364>:	str	d0, [x29, #200]
-   0x0000000000400dd0 <+368>:	bl	0x4019a0 <_Z15Filter_verticalPKhPh>
-   0x0000000000400dd4 <+372>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400dd8 <+376>:	sub	x25, x0, x25
-   0x0000000000400ddc <+380>:	str	x0, [x29, #328]
-   0x0000000000400de0 <+384>:	scvtf	d0, x25
-   0x0000000000400de4 <+388>:	fadd	d11, d11, d0
-   0x0000000000400de8 <+392>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400dec <+396>:	ldr	d0, [x29, #184]
-   0x0000000000400df0 <+400>:	mov	x1, x19
-   0x0000000000400df4 <+404>:	mov	x25, x0
-   0x0000000000400df8 <+408>:	str	x0, [x29, #352]
-   0x0000000000400dfc <+412>:	mov	x0, x20
-   0x0000000000400e00 <+416>:	fadd	d0, d0, d8
-   0x0000000000400e04 <+420>:	str	d0, [x29, #184]
-   0x0000000000400e08 <+424>:	bl	0x401470 <_Z13DifferentiatePKhPh>
-   0x0000000000400e0c <+428>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400e10 <+432>:	sub	x25, x0, x25
-   0x0000000000400e14 <+436>:	str	x0, [x29, #360]
-   0x0000000000400e18 <+440>:	scvtf	d0, x25
-   0x0000000000400e1c <+444>:	fadd	d10, d10, d0
-   0x0000000000400e20 <+448>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400e24 <+452>:	ldr	d0, [x29, #168]
-   0x0000000000400e28 <+456>:	mov	x1, x23
-   0x0000000000400e2c <+460>:	mov	x26, x0
-   0x0000000000400e30 <+464>:	str	x0, [x29, #384]
-   0x0000000000400e34 <+468>:	mov	x0, x19
-   0x0000000000400e38 <+472>:	fadd	d0, d0, d8
-   0x0000000000400e3c <+476>:	str	d0, [x29, #168]
-   0x0000000000400e40 <+480>:	bl	0x401370 <_Z8CompressPKhPh>
-   0x0000000000400e44 <+484>:	mov	w25, w0
-   0x0000000000400e48 <+488>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400e4c <+492>:	sub	x3, x0, x26
-   0x0000000000400e50 <+496>:	str	x0, [x29, #392]
-   0x0000000000400e54 <+500>:	scvtf	d0, x3
-   0x0000000000400e58 <+504>:	fadd	d9, d9, d0
-   0x0000000000400e5c <+508>:	bl	0x400af0 <_ZNSt6chrono3_V212system_clock3nowEv@plt>
-   0x0000000000400e60 <+512>:	sub	x2, x0, x27
-   0x0000000000400e64 <+516>:	cmp	x24, x28
-   0x0000000000400e68 <+520>:	str	x0, [x29, #424]
-   0x0000000000400e6c <+524>:	scvtf	d0, x2
-   0x0000000000400e70 <+528>:	fadd	d14, d14, d0
-   0x0000000000400e74 <+532>:	b.ne	0x400d28 <main+200>  // b.any
-   0x0000000000400e78 <+536>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400e7c <+540>:	adrp	x19, 0x420000
-   0x0000000000400e80 <+544>:	add	x19, x19, #0xce0
-   0x0000000000400e84 <+548>:	mov	x2, #0x1b                  	// #27
-   0x0000000000400e88 <+552>:	add	x1, x1, #0x298
-   0x0000000000400e8c <+556>:	mov	x0, x19
-   0x0000000000400e90 <+560>:	adrp	x21, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400e94 <+564>:	add	x21, x21, #0x2b8
-   0x0000000000400e98 <+568>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400e9c <+572>:	fmov	d0, d13
-   0x0000000000400ea0 <+576>:	mov	x0, x19
-   0x0000000000400ea4 <+580>:	mov	x20, #0x0                   	// #0
-   0x0000000000400ea8 <+584>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400eac <+588>:	mov	x2, #0x4                   	// #4
-   0x0000000000400eb0 <+592>:	mov	x1, x21
-   0x0000000000400eb4 <+596>:	mov	x22, x0
-   0x0000000000400eb8 <+600>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400ebc <+604>:	mov	x0, x22
-   0x0000000000400ec0 <+608>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400ec4 <+612>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400ec8 <+616>:	mov	x2, #0x27                  	// #39
-   0x0000000000400ecc <+620>:	add	x1, x1, #0x2c0
-   0x0000000000400ed0 <+624>:	mov	x0, x19
-   0x0000000000400ed4 <+628>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400ed8 <+632>:	fmov	d0, d12
-   0x0000000000400edc <+636>:	mov	x0, x19
-   0x0000000000400ee0 <+640>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400ee4 <+644>:	mov	x2, #0x4                   	// #4
-   0x0000000000400ee8 <+648>:	mov	x1, x21
-   0x0000000000400eec <+652>:	mov	x22, x0
-   0x0000000000400ef0 <+656>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400ef4 <+660>:	mov	x0, x22
-   0x0000000000400ef8 <+664>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400efc <+668>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400f00 <+672>:	mov	x2, #0x25                  	// #37
-   0x0000000000400f04 <+676>:	add	x1, x1, #0x2e8
-   0x0000000000400f08 <+680>:	mov	x0, x19
-   0x0000000000400f0c <+684>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f10 <+688>:	fmov	d0, d11
-   0x0000000000400f14 <+692>:	mov	x0, x19
-   0x0000000000400f18 <+696>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400f1c <+700>:	mov	x2, #0x4                   	// #4
-   0x0000000000400f20 <+704>:	mov	x1, x21
-   0x0000000000400f24 <+708>:	mov	x22, x0
-   0x0000000000400f28 <+712>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f2c <+716>:	mov	x0, x22
-   0x0000000000400f30 <+720>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400f34 <+724>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400f38 <+728>:	mov	x2, #0x23                  	// #35
-   0x0000000000400f3c <+732>:	add	x1, x1, #0x310
-   0x0000000000400f40 <+736>:	mov	x0, x19
-   0x0000000000400f44 <+740>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f48 <+744>:	fmov	d0, d10
-   0x0000000000400f4c <+748>:	mov	x0, x19
-   0x0000000000400f50 <+752>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400f54 <+756>:	mov	x2, #0x4                   	// #4
-   0x0000000000400f58 <+760>:	mov	x1, x21
-   0x0000000000400f5c <+764>:	mov	x22, x0
-   0x0000000000400f60 <+768>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f64 <+772>:	mov	x0, x22
-   0x0000000000400f68 <+776>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400f6c <+780>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400f70 <+784>:	mov	x2, #0x1e                  	// #30
-   0x0000000000400f74 <+788>:	add	x1, x1, #0x338
-   0x0000000000400f78 <+792>:	mov	x0, x19
-   0x0000000000400f7c <+796>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f80 <+800>:	fmov	d0, d9
-   0x0000000000400f84 <+804>:	mov	x0, x19
-   0x0000000000400f88 <+808>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400f8c <+812>:	mov	x2, #0x4                   	// #4
-   0x0000000000400f90 <+816>:	mov	x1, x21
-   0x0000000000400f94 <+820>:	mov	x22, x0
-   0x0000000000400f98 <+824>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400f9c <+828>:	mov	x0, x22
-   0x0000000000400fa0 <+832>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400fa4 <+836>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400fa8 <+840>:	mov	x2, #0x21                  	// #33
-   0x0000000000400fac <+844>:	add	x1, x1, #0x358
-   0x0000000000400fb0 <+848>:	mov	x0, x19
-   0x0000000000400fb4 <+852>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400fb8 <+856>:	fmov	d0, d14
-   0x0000000000400fbc <+860>:	mov	x0, x19
-   0x0000000000400fc0 <+864>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000400fc4 <+868>:	mov	x2, #0x4                   	// #4
-   0x0000000000400fc8 <+872>:	mov	x1, x21
-   0x0000000000400fcc <+876>:	mov	x22, x0
-   0x0000000000400fd0 <+880>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400fd4 <+884>:	mov	x0, x22
-   0x0000000000400fd8 <+888>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400fdc <+892>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400fe0 <+896>:	mov	x2, #0x3f                  	// #63
-   0x0000000000400fe4 <+900>:	add	x1, x1, #0x380
-   0x0000000000400fe8 <+904>:	mov	x0, x19
-   0x0000000000400fec <+908>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000400ff0 <+912>:	mov	x0, x19
-   0x0000000000400ff4 <+916>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000400ff8 <+920>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000400ffc <+924>:	mov	x2, #0x30                  	// #48
-   0x0000000000401000 <+928>:	add	x1, x1, #0x3c0
-   0x0000000000401004 <+932>:	mov	x0, x19
-   0x0000000000401008 <+936>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x000000000040100c <+940>:	fdiv	d0, d13, d15
-   0x0000000000401010 <+944>:	mov	x0, x19
-   0x0000000000401014 <+948>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000401018 <+952>:	mov	x2, #0x4                   	// #4
-   0x000000000040101c <+956>:	mov	x1, x21
-   0x0000000000401020 <+960>:	mov	x22, x0
-   0x0000000000401024 <+964>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401028 <+968>:	mov	x0, x22
-   0x000000000040102c <+972>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000401030 <+976>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000401034 <+980>:	mov	x2, #0x3c                  	// #60
-   0x0000000000401038 <+984>:	add	x1, x1, #0x3f8
-   0x000000000040103c <+988>:	mov	x0, x19
-   0x0000000000401040 <+992>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401044 <+996>:	ldr	d0, [x29, #192]
-   0x0000000000401048 <+1000>:	mov	x0, x19
-   0x000000000040104c <+1004>:	fdiv	d0, d12, d0
-   0x0000000000401050 <+1008>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000401054 <+1012>:	mov	x2, #0x4                   	// #4
-   0x0000000000401058 <+1016>:	mov	x1, x21
-   0x000000000040105c <+1020>:	mov	x22, x0
-   0x0000000000401060 <+1024>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401064 <+1028>:	mov	x0, x22
-   0x0000000000401068 <+1032>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x000000000040106c <+1036>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000401070 <+1040>:	mov	x2, #0x3a                  	// #58
-   0x0000000000401074 <+1044>:	add	x1, x1, #0x438
-   0x0000000000401078 <+1048>:	mov	x0, x19
-   0x000000000040107c <+1052>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401080 <+1056>:	ldr	d0, [x29, #200]
-   0x0000000000401084 <+1060>:	mov	x0, x19
-   0x0000000000401088 <+1064>:	fdiv	d0, d11, d0
-   0x000000000040108c <+1068>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000401090 <+1072>:	mov	x2, #0x4                   	// #4
-   0x0000000000401094 <+1076>:	mov	x1, x21
-   0x0000000000401098 <+1080>:	mov	x22, x0
-   0x000000000040109c <+1084>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x00000000004010a0 <+1088>:	mov	x0, x22
-   0x00000000004010a4 <+1092>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x00000000004010a8 <+1096>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x00000000004010ac <+1100>:	mov	x2, #0x38                  	// #56
-   0x00000000004010b0 <+1104>:	add	x1, x1, #0x478
-   0x00000000004010b4 <+1108>:	mov	x0, x19
-   0x00000000004010b8 <+1112>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x00000000004010bc <+1116>:	ldr	d0, [x29, #184]
-   0x00000000004010c0 <+1120>:	mov	x0, x19
-   0x00000000004010c4 <+1124>:	fdiv	d0, d10, d0
-   0x00000000004010c8 <+1128>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x00000000004010cc <+1132>:	mov	x2, #0x4                   	// #4
-   0x00000000004010d0 <+1136>:	mov	x1, x21
-   0x00000000004010d4 <+1140>:	mov	x22, x0
-   0x00000000004010d8 <+1144>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x00000000004010dc <+1148>:	mov	x0, x22
-   0x00000000004010e0 <+1152>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x00000000004010e4 <+1156>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x00000000004010e8 <+1160>:	mov	x2, #0x33                  	// #51
-   0x00000000004010ec <+1164>:	add	x1, x1, #0x4b8
-   0x00000000004010f0 <+1168>:	mov	x0, x19
-   0x00000000004010f4 <+1172>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x00000000004010f8 <+1176>:	ldr	d0, [x29, #168]
-   0x00000000004010fc <+1180>:	mov	x0, x19
-   0x0000000000401100 <+1184>:	fdiv	d0, d9, d0
-   0x0000000000401104 <+1188>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000401108 <+1192>:	mov	x2, #0x4                   	// #4
-   0x000000000040110c <+1196>:	mov	x1, x21
-   0x0000000000401110 <+1200>:	mov	x22, x0
-   0x0000000000401114 <+1204>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401118 <+1208>:	mov	x0, x22
-   0x000000000040111c <+1212>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x0000000000401120 <+1216>:	adrp	x1, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000401124 <+1220>:	mov	x2, #0x2b                  	// #43
-   0x0000000000401128 <+1224>:	add	x1, x1, #0x4f0
-   0x000000000040112c <+1228>:	mov	x0, x19
-   0x0000000000401130 <+1232>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401134 <+1236>:	ldr	d0, [x29, #176]
-   0x0000000000401138 <+1240>:	mov	x0, x19
-   0x000000000040113c <+1244>:	fdiv	d0, d14, d0
-   0x0000000000401140 <+1248>:	bl	0x400be0 <_ZNSo9_M_insertIdEERSoT_@plt>
-   0x0000000000401144 <+1252>:	mov	x2, #0x4                   	// #4
-   0x0000000000401148 <+1256>:	mov	x1, x21
-   0x000000000040114c <+1260>:	mov	x19, x0
-   0x0000000000401150 <+1264>:	bl	0x400b80 <_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt>
-   0x0000000000401154 <+1268>:	mov	x0, x19
-   0x0000000000401158 <+1272>:	bl	0x400b40 <_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt>
-   0x000000000040115c <+1276>:	adrp	x0, 0x402000 <_Z23pin_main_thread_to_cpu0v+32>
-   0x0000000000401160 <+1280>:	mov	x1, x23
-   0x0000000000401164 <+1284>:	add	x0, x0, #0x520
-   0x0000000000401168 <+1288>:	mov	w2, w25
-   0x000000000040116c <+1292>:	bl	0x402080 <_Z10Store_dataPKcPhj>
-   0x0000000000401170 <+1296>:	mov	w1, w25
-   0x0000000000401174 <+1300>:	mov	x0, x23
-   0x0000000000401178 <+1304>:	bl	0x4020f0 <_Z10Check_dataPhj>
-   0x000000000040117c <+1308>:	add	x0, x29, #0xd0
-   0x0000000000401180 <+1312>:	ldr	x0, [x0, x20, lsl #3]
-   0x0000000000401184 <+1316>:	add	x20, x20, #0x1
-   0x0000000000401188 <+1320>:	bl	0x400b50 <free@plt>
-   0x000000000040118c <+1324>:	cmp	x20, #0x4
-   0x0000000000401190 <+1328>:	b.ne	0x40117c <main+1308>  // b.any
-   0x0000000000401194 <+1332>:	ldr	x0, [x29, #160]
-   0x0000000000401198 <+1336>:	bl	0x400b50 <free@plt>
-   0x000000000040119c <+1340>:	mov	x0, x23
-   0x00000000004011a0 <+1344>:	bl	0x400b50 <free@plt>
-   0x00000000004011a4 <+1348>:	ldp	d8, d9, [sp, #96]
-   0x00000000004011a8 <+1352>:	mov	w0, #0x0                   	// #0
-   0x00000000004011ac <+1356>:	ldp	x19, x20, [sp, #16]
-   0x00000000004011b0 <+1360>:	ldp	x21, x22, [sp, #32]
-   0x00000000004011b4 <+1364>:	ldp	x23, x24, [sp, #48]
-   0x00000000004011b8 <+1368>:	ldp	x25, x26, [sp, #64]
-   0x00000000004011bc <+1372>:	ldp	x27, x28, [sp, #80]
-   0x00000000004011c0 <+1376>:	ldp	d10, d11, [sp, #112]
-   0x00000000004011c4 <+1380>:	ldp	d12, d13, [sp, #128]
-   0x00000000004011c8 <+1384>:	ldp	d14, d15, [sp, #144]
-   0x00000000004011cc <+1388>:	ldp	x29, x30, [sp], #432
-   0x00000000004011d0 <+1392>:	ret
-   0x00000000004011d4 <+1396>:	bl	0x401e80 <_Z15Exit_with_errorv>
-   0x00000000004011d8 <+1400>:	b	0x400cd0 <main+112>
+Breakpoint 1, 0x00000000004019b4 in Filter_vertical(unsigned char const*, unsigned char*) ()
+Dump of assembler code for function _Z15Filter_verticalPKhPh:
+   0x00000000004019a0 <+0>:	adrp	x3, 0x420000
+   0x00000000004019a4 <+4>:	add	x2, x3, #0xcc0
+   0x00000000004019a8 <+8>:	str	d8, [sp, #-16]!
+   0x00000000004019ac <+12>:	sub	x1, x1, #0x1f, lsl #12
+   0x00000000004019b0 <+16>:	add	x4, x0, #0x1f, lsl #12
+=> 0x00000000004019b4 <+20>:	ldrh	w14, [x3, #3264]
+   0x00000000004019b8 <+24>:	add	x12, x0, #0x1f, lsl #12
+   0x00000000004019bc <+28>:	mov	x11, #0xffffffffffff0c14    	// #-62444
+   0x00000000004019c0 <+32>:	movk	x11, #0xfffe, lsl #16
+   0x00000000004019c4 <+36>:	ldrh	w13, [x2, #4]
+   0x00000000004019c8 <+40>:	mov	x10, #0xffffffffffff0dee    	// #-61970
+   0x00000000004019cc <+44>:	movk	x10, #0xfffe, lsl #16
+   0x00000000004019d0 <+48>:	mov	x9, #0xffffffffffff0fc8    	// #-61496
+   0x00000000004019d4 <+52>:	movk	x9, #0xfffe, lsl #16
+   0x00000000004019d8 <+56>:	ldrh	w3, [x2, #8]
+   0x00000000004019dc <+60>:	mov	x8, #0xffffffffffff11a2    	// #-61022
+   0x00000000004019e0 <+64>:	movk	x8, #0xfffe, lsl #16
+   0x00000000004019e4 <+68>:	dup	v24.8h, w14
+   0x00000000004019e8 <+72>:	mov	x7, #0xffffffffffff137c    	// #-60548
+   0x00000000004019ec <+76>:	movk	x7, #0xfffe, lsl #16
+   0x00000000004019f0 <+80>:	ldrh	w2, [x2, #12]
+   0x00000000004019f4 <+84>:	mov	x6, #0xffffffffffff1556    	// #-60074
+   0x00000000004019f8 <+88>:	movk	x6, #0xfffe, lsl #16
+   0x00000000004019fc <+92>:	dup	v23.8h, w13
+   0x0000000000401a00 <+96>:	mov	x5, #0xffffffffffff1730    	// #-59600
+   0x0000000000401a04 <+100>:	movk	x5, #0xfffe, lsl #16
+   0x0000000000401a08 <+104>:	sub	x1, x1, #0x3ec
+   0x0000000000401a0c <+108>:	add	x4, x4, #0x3ec
+   0x0000000000401a10 <+112>:	dup	v22.8h, w3
+   0x0000000000401a14 <+116>:	add	x12, x12, #0x5cc
+   0x0000000000401a18 <+120>:	dup	v21.8h, w2
+   0x0000000000401a1c <+124>:	nop
+   0x0000000000401a20 <+128>:	ldr	q20, [x4, x11]
+   0x0000000000401a24 <+132>:	sub	x3, x4, x0
+   0x0000000000401a28 <+136>:	add	x2, x4, x5
+   0x0000000000401a2c <+140>:	add	x3, x1, x3
+   0x0000000000401a30 <+144>:	ldr	q6, [x4, x10]
+   0x0000000000401a34 <+148>:	ldr	q5, [x4, x9]
+   0x0000000000401a38 <+152>:	ldr	q4, [x4, x8]
+   0x0000000000401a3c <+156>:	ldr	q3, [x4, x7]
+   0x0000000000401a40 <+160>:	ldr	q2, [x4, x6]
+   0x0000000000401a44 <+164>:	nop
+   0x0000000000401a48 <+168>:	mov	d0, v20.d[1]
+   0x0000000000401a4c <+172>:	mov	d1, v20.d[0]
+   0x0000000000401a50 <+176>:	ldr	q26, [x2]
+   0x0000000000401a54 <+180>:	mov	d8, v6.d[1]
+   0x0000000000401a58 <+184>:	mov	d25, v2.d[1]
+   0x0000000000401a5c <+188>:	mov	d31, v5.d[1]
+   0x0000000000401a60 <+192>:	mov	d18, v3.d[1]
+   0x0000000000401a64 <+196>:	add	x2, x2, #0x1da
+   0x0000000000401a68 <+200>:	mov	d19, v6.d[0]
+   0x0000000000401a6c <+204>:	mov	d30, v2.d[0]
+   0x0000000000401a70 <+208>:	cmp	x4, x2
+   0x0000000000401a74 <+212>:	mov	d17, v5.d[0]
+   0x0000000000401a78 <+216>:	mov	d29, v3.d[0]
+   0x0000000000401a7c <+220>:	mov	d16, v4.d[1]
+   0x0000000000401a80 <+224>:	mov	d7, v4.d[0]
+   0x0000000000401a84 <+228>:	uxtl	v16.8h, v16.8b
+   0x0000000000401a88 <+232>:	mov	d28, v26.d[1]
+   0x0000000000401a8c <+236>:	mov	d27, v26.d[0]
+   0x0000000000401a90 <+240>:	uxtl	v7.8h, v7.8b
+   0x0000000000401a94 <+244>:	uaddl	v25.8h, v8.8b, v25.8b
+   0x0000000000401a98 <+248>:	uaddl	v18.8h, v31.8b, v18.8b
+   0x0000000000401a9c <+252>:	uaddl	v19.8h, v19.8b, v30.8b
+   0x0000000000401aa0 <+256>:	uaddl	v17.8h, v17.8b, v29.8b
+   0x0000000000401aa4 <+260>:	uaddl	v0.8h, v0.8b, v28.8b
+   0x0000000000401aa8 <+264>:	uaddl	v1.8h, v1.8b, v27.8b
+   0x0000000000401aac <+268>:	mov	v20.16b, v6.16b
+   0x0000000000401ab0 <+272>:	mov	v6.16b, v5.16b
+   0x0000000000401ab4 <+276>:	mov	v5.16b, v4.16b
+   0x0000000000401ab8 <+280>:	mov	v4.16b, v3.16b
+   0x0000000000401abc <+284>:	mov	v3.16b, v2.16b
+   0x0000000000401ac0 <+288>:	mov	v2.16b, v26.16b
+   0x0000000000401ac4 <+292>:	mul	v0.8h, v0.8h, v24.8h
+   0x0000000000401ac8 <+296>:	mla	v0.8h, v25.8h, v23.8h
+   0x0000000000401acc <+300>:	mul	v1.8h, v1.8h, v24.8h
+   0x0000000000401ad0 <+304>:	mla	v0.8h, v18.8h, v22.8h
+   0x0000000000401ad4 <+308>:	mla	v1.8h, v19.8h, v23.8h
+   0x0000000000401ad8 <+312>:	mla	v0.8h, v16.8h, v21.8h
+   0x0000000000401adc <+316>:	mla	v1.8h, v17.8h, v22.8h
+   0x0000000000401ae0 <+320>:	ushr	v0.8h, v0.8h, #8
+   0x0000000000401ae4 <+324>:	mla	v1.8h, v7.8h, v21.8h
+   0x0000000000401ae8 <+328>:	xtn	v0.8b, v0.8h
+   0x0000000000401aec <+332>:	ushr	v1.8h, v1.8h, #8
+   0x0000000000401af0 <+336>:	xtn	v1.8b, v1.8h
+   0x0000000000401af4 <+340>:	mov	d7, v1.d[0]
+   0x0000000000401af8 <+344>:	mov	v7.d[1], v0.d[0]
+   0x0000000000401afc <+348>:	str	q7, [x3]
+   0x0000000000401b00 <+352>:	add	x3, x3, #0x1da
+   0x0000000000401b04 <+356>:	b.ne	0x401a48 <_Z15Filter_verticalPKhPh+168>  // b.any
+   0x0000000000401b08 <+360>:	add	x4, x4, #0x8
+   0x0000000000401b0c <+364>:	cmp	x12, x4
+   0x0000000000401b10 <+368>:	b.ne	0x401a20 <_Z15Filter_verticalPKhPh+128>  // b.any
+   0x0000000000401b14 <+372>:	ldr	d8, [sp], #16
+   0x0000000000401b18 <+376>:	ret
 End of assembler dump.
