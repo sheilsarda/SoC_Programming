@@ -44,9 +44,12 @@ void Filter_vertical(const unsigned char *Input, unsigned char *Output)
     {
    	  uint8x16_t Data6 = vld1q_u8(Input + (Y + 6) * OUTPUT_WIDTH + X);
    	  
-      uint16x8_t SumH = 0;
-      vfmaq_u16(SumH, vget_high_u8(Data0), Coef0);
-      vfmaq_u16(SumH, vget_high_u8(Data6), Coef0);
+      float16x8_t SumH_1 = vmovq_n_f16(0);
+ 
+      // float16x8_t f_data6 = vget_high_u8(Data6);
+
+      vfmaq_f16(SumH_1, (float16x8_t) (Data0), (float16x8_t) Coef0);      
+      // vfmaq_f16(SumH_1, f_data6, Coef0);
 
 
       uint16x8_t Sum0H = vaddl_u8(vget_high_u8(Data0), vget_high_u8(Data6));
