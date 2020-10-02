@@ -89,7 +89,7 @@ void Filter_vertical(const unsigned char *Input, unsigned char *Output)
    	uint8x16_t Data3 = vld1q_u8(Input + 3 * OUTPUT_WIDTH + X);
    	uint8x16_t Data4 = vld1q_u8(Input + 4 * OUTPUT_WIDTH + X);
    	uint8x16_t Data5 = vld1q_u8(Input + 5 * OUTPUT_WIDTH + X);
-    for (int Y = 0; Y < OUTPUT_HEIGHT; Y+=2)
+    for (int Y = 0; Y < OUTPUT_HEIGHT; Y+=3)
     {
    	  uint8x16_t Data6 = vld1q_u8(Input + (Y + 6) * OUTPUT_WIDTH + X);
  
@@ -120,6 +120,35 @@ void Filter_vertical(const unsigned char *Input, unsigned char *Output)
    	  Data5 = Data6;
 
       Data6 = vld1q_u8(Input + (Y + 6) * OUTPUT_WIDTH + X);
+ 
+   	  Sum0H = vaddl_u8(vget_high_u8(Data0), vget_high_u8(Data6));
+   	  Sum1H = vaddl_u8(vget_high_u8(Data1), vget_high_u8(Data5));
+   	  Sum2H = vaddl_u8(vget_high_u8(Data2), vget_high_u8(Data4));
+   	  SumH = vmulq_u16(Sum0H, Coef0);
+   	  SumH = vmlaq_u16(SumH, Sum1H, Coef1);
+   	  SumH = vmlaq_u16(SumH, Sum2H, Coef2);
+   	  SumH = vmlaq_u16(SumH, vmovl_u8(vget_high_u8(Data3)), Coef3);
+   	  SumH = vshrq_n_u16(SumH, 8);
+   	  ResultH = vmovn_u16(SumH);
+   	  Sum0L = vaddl_u8(vget_low_u8(Data0), vget_low_u8(Data6));
+   	  Sum1L = vaddl_u8(vget_low_u8(Data1), vget_low_u8(Data5));
+   	  Sum2L = vaddl_u8(vget_low_u8(Data2), vget_low_u8(Data4));
+   	  SumL = vmulq_u16(Sum0L, Coef0);
+   	  SumL = vmlaq_u16(SumL, Sum1L, Coef1);
+   	  SumL = vmlaq_u16(SumL, Sum2L, Coef2);
+   	  SumL = vmlaq_u16(SumL, vmovl_u8(vget_low_u8(Data3)), Coef3);
+   	  SumL = vshrq_n_u16(SumL, 8);
+   	  ResultL = vmovn_u16(SumL);
+   	  vst1q_u8(Output + Y * OUTPUT_WIDTH + X, vcombine_u8(ResultL, ResultH));
+
+      Data0 = Data1;
+   	  Data1 = Data2;
+   	  Data2 = Data3;
+   	  Data3 = Data4;
+   	  Data4 = Data5;
+   	  Data5 = Data6;
+
+             Data6 = vld1q_u8(Input + (Y + 6) * OUTPUT_WIDTH + X);
  
    	  Sum0H = vaddl_u8(vget_high_u8(Data0), vget_high_u8(Data6));
    	  Sum1H = vaddl_u8(vget_high_u8(Data1), vget_high_u8(Data5));
