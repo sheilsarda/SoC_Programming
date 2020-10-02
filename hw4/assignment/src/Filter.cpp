@@ -67,7 +67,7 @@ void Filter_vertical(const unsigned char *Input, unsigned char *Output)
    	  // uint8x8_t ResultL = vmovn_u16(SumL);
       // vst1q_u8(Output + Y * OUTPUT_WIDTH + X, vcombine_u8(ResultL, ResultH));
 
-   	  vst1q_u8(Output + Y * OUTPUT_WIDTH + X, SumH_1);
+   	  // vst1q_u8(Output + Y * OUTPUT_WIDTH + X, SumH_1);
    	  Data0 = Data1;
    	  Data1 = Data2;
    	  Data2 = Data3;
