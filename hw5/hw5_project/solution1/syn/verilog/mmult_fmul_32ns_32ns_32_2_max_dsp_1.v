@@ -7,7 +7,7 @@
 
 module mmult_fmul_32ns_32ns_32_2_max_dsp_1
 #(parameter
-    ID         = 3,
+    ID         = 22,
     NUM_STAGE  = 2,
     din0_WIDTH = 32,
     din1_WIDTH = 32,

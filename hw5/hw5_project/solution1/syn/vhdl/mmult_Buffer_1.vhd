@@ -10,15 +10,17 @@ use ieee.std_logic_unsigned.all;
 entity mmult_Buffer_1_ram is 
     generic(
             MEM_TYPE    : string := "block"; 
-            DWIDTH     : integer := 32; 
-            AWIDTH     : integer := 12; 
-            MEM_SIZE    : integer := 4096
+            DWIDTH     : integer := 384; 
+            AWIDTH     : integer := 9; 
+            MEM_SIZE    : integer := 384;
+            COL_WIDTH    : integer := 8;
+            NUM_COL      : integer := 48
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
           ce0       : in std_logic; 
           d0        : in std_logic_vector(DWIDTH-1 downto 0); 
-          we0       : in std_logic; 
+          we0       : in std_logic_vector(NUM_COL-1 downto 0); 
           q0        : out std_logic_vector(DWIDTH-1 downto 0);
           addr1     : in std_logic_vector(AWIDTH-1 downto 0); 
           ce1       : in std_logic; 
@@ -60,9 +62,11 @@ begin
     if (clk'event and clk = '1') then
         if (ce0 = '1') then 
             q0 <= ram(CONV_INTEGER(addr0_tmp));
-            if (we0 = '1') then 
-                ram(CONV_INTEGER(addr0_tmp)) := d0; 
-            end if;
+            for i in 0 to NUM_COL - 1 loop
+                if (we0(i) = '1') then
+                    ram(CONV_INTEGER(addr0_tmp))((i + 1) * COL_WIDTH - 1 downto i * COL_WIDTH) := d0((i + 1) * COL_WIDTH - 1 downto i * COL_WIDTH); 
+                end if;
+            end loop;
         end if;
     end if;
 end process;
@@ -96,15 +100,15 @@ use IEEE.std_logic_1164.all;
 
 entity mmult_Buffer_1 is
     generic (
-        DataWidth : INTEGER := 32;
-        AddressRange : INTEGER := 4096;
-        AddressWidth : INTEGER := 12);
+        DataWidth : INTEGER := 384;
+        AddressRange : INTEGER := 384;
+        AddressWidth : INTEGER := 9);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;
         address0 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
         ce0 : IN STD_LOGIC;
-        we0 : IN STD_LOGIC;
+        we0 : IN STD_LOGIC_VECTOR(DataWidth/8 - 1 DOWNTO 0);
         d0 : IN STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
         q0 : OUT STD_LOGIC_VECTOR(DataWidth - 1 DOWNTO 0);
         address1 : IN STD_LOGIC_VECTOR(AddressWidth - 1 DOWNTO 0);
@@ -118,7 +122,7 @@ architecture arch of mmult_Buffer_1 is
             clk : IN STD_LOGIC;
             addr0 : IN STD_LOGIC_VECTOR;
             ce0 : IN STD_LOGIC;
-            we0 : IN STD_LOGIC;
+            we0 : IN STD_LOGIC_VECTOR(DataWidth/8 - 1 DOWNTO 0);
             d0 : IN STD_LOGIC_VECTOR;
             q0 : OUT STD_LOGIC_VECTOR;
             addr1 : IN STD_LOGIC_VECTOR;

@@ -12,9 +12,9 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="hw5_project" solutionName="solution1" date="2020-10-15T20:28:11.763+0000" type="Warning"/>
-        <logs message="WARNING: [HLS 200-885] Unable to schedule 'load' operation ('Buffer_1_load_2', hls/MatrixMultiplication.cpp:35) on array 'Buffer_1', hls/MatrixMultiplication.cpp:9 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'Buffer_1'.&#xA;Resolution: For help on HLS 200-885 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-885.html" projectName="hw5_project" solutionName="solution1" date="2020-10-15T20:28:10.301+0000" type="Warning"/>
-        <logs message="WARNING: [SYN 201-107] Renaming port name 'mmult/Output' to 'mmult/Output_r' to avoid the conflict with HDL keywords or other object names." projectName="hw5_project" solutionName="solution1" date="2020-10-15T20:28:09.007+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="hw5_project" solutionName="solution1" date="2020-10-15T22:17:23.596+0000" type="Warning"/>
+        <logs message="WARNING: [HLS 200-885] Unable to schedule 'load' operation ('Buffer_1_load_2', hls/MatrixMultiplication.cpp:45) on array 'Buffer_1', hls/MatrixMultiplication.cpp:9 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'Buffer_1'.&#xA;Resolution: For help on HLS 200-885 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-885.html" projectName="hw5_project" solutionName="solution1" date="2020-10-15T22:17:22.036+0000" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'mmult/Output' to 'mmult/Output_r' to avoid the conflict with HDL keywords or other object names." projectName="hw5_project" solutionName="solution1" date="2020-10-15T22:17:21.265+0000" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

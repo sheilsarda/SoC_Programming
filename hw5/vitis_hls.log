@@ -1,5 +1,5 @@
 INFO: [HLS 200-10] Running '/opt/Xilinx/Vitis/2020.1/bin/unwrapped/lnx64.o/vitis_hls'
-INFO: [HLS 200-10] For user 'centos' on host 'ip-172-31-77-247.ec2.internal' (Linux_x86_64 version 3.10.0-1127.10.1.el7.x86_64) on Thu Oct 15 20:28:02 UTC 2020
+INFO: [HLS 200-10] For user 'centos' on host 'ip-172-31-77-247.ec2.internal' (Linux_x86_64 version 3.10.0-1127.10.1.el7.x86_64) on Thu Oct 15 22:17:14 UTC 2020
 INFO: [HLS 200-10] On os "CentOS Linux release 7.7.1908 (Core)"
 INFO: [HLS 200-10] In directory '/home/centos/ESE532_Projects/hw5'
 Sourcing Tcl script '/home/centos/ESE532_Projects/hw5/hw5_project/solution1/csynth.tcl'
@@ -12,28 +12,29 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 8ns.
 INFO: [HLS 200-10] Setting target device to 'xcvu9p-flgb2104-2-i'
 INFO: [HLS 200-1505] Using flow_target 'vitis'
 Resolution: For help on HLS 200-1505 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-1505.html
-INFO: [HLS 200-1464] Running solution command: config_interface -clock_enable=false
+INFO: [HLS 200-1464] Running solution command: config_interface -clock_enable=0
 INFO: [HLS 200-1464] Running solution command: config_interface -default_slave_interface=s_axilite
-INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_addr64=true
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_addr64=1
 INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
-INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_auto_max_ports=false
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_auto_max_ports=0
 INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
 INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
 INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=off
 INFO: [HLS 200-1464] Running solution command: config_interface -register_io=off
-INFO: [HLS 200-1464] Running solution command: config_interface -s_axilite_data64=false
-INFO: [HLS 200-1464] Running solution command: config_rtl -kernel_profile=false
-INFO: [HLS 200-1464] Running solution command: config_rtl -m_axi_conservative_mode=false
-INFO: [HLS 200-1464] Running solution command: config_rtl -module_auto_prefix=true
-INFO: [HLS 200-1464] Running solution command: config_rtl -mult_keep_attribute=false
+INFO: [HLS 200-1464] Running solution command: config_interface -s_axilite_data64=0
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_rtl -kernel_profile=0
+INFO: [HLS 200-1464] Running solution command: config_rtl -m_axi_conservative_mode=0
+INFO: [HLS 200-1464] Running solution command: config_rtl -module_auto_prefix=1
+INFO: [HLS 200-1464] Running solution command: config_rtl -mult_keep_attribute=0
 INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
 INFO: [HLS 200-1464] Running solution command: config_rtl -reset=control
-INFO: [HLS 200-1464] Running solution command: config_rtl -reset_async=false
+INFO: [HLS 200-1464] Running solution command: config_rtl -reset_async=0
 INFO: [HLS 200-1464] Running solution command: config_rtl -reset_level=high
-INFO: [HLS 200-1464] Running solution command: config_compile -dump_cfg=false
+INFO: [HLS 200-1464] Running solution command: config_compile -dump_cfg=0
 INFO: [HLS 200-1464] Running solution command: config_compile -name_max_length=80
 INFO: [XFORM 203-1161] The maximum of name length is set into 80.
-INFO: [HLS 200-1464] Running solution command: config_compile -no_signed_zeros=false
+INFO: [HLS 200-1464] Running solution command: config_compile -no_signed_zeros=0
 INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
 INFO: [XFORM 203-1161] The maximum of name length is set into 80.
 INFO: [HLS 200-1464] Running solution command: config_compile -pipeline_loops=0
@@ -44,11 +45,11 @@ INFO: [HLS 200-1464] Running solution command: config_compile -pipeline_style=st
 INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
 INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
 INFO: [XFORM 203-1161] The maximum of name length is set into 80.
-INFO: [HLS 200-1464] Running solution command: config_compile -pragma_strict_mode=false
+INFO: [HLS 200-1464] Running solution command: config_compile -pragma_strict_mode=0
 INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
 INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
 INFO: [XFORM 203-1161] The maximum of name length is set into 80.
-INFO: [HLS 200-1464] Running solution command: config_compile -unsafe_math_optimizations=false
+INFO: [HLS 200-1464] Running solution command: config_compile -unsafe_math_optimizations=0
 INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 0 or its parent loop when its trip count is less than or equal 0.
 INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
 INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
@@ -63,23 +64,26 @@ INFO: [XFORM 203-1176] Optimizing floating point comparison without checking NaN
 INFO: [XFORM 203-1161] The maximum of name length is set into 80.
 INFO: [HLS 200-10] Analyzing design file 'hls/MatrixMultiplication.cpp' ... 
 INFO: [HLS 200-777] Using interface defaults for 'Vitis' target.
-INFO: [HLS 214-115] Burst read of length 256 and bit width 512 has been inferred on port 'aximm1' (hls/MatrixMultiplication.cpp:12:15)
-INFO: [HLS 214-115] Burst read of length 256 and bit width 512 has been inferred on port 'aximm2' (hls/MatrixMultiplication.cpp:12:15)
-INFO: [HLS 214-115] Burst write of length 256 and bit width 512 has been inferred on port 'aximm1' (hls/MatrixMultiplication.cpp:18:15)
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58883 ; free virtual = 81141
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58883 ; free virtual = 81141
+INFO: [HLS 214-115] Burst read of length 256 and bit width 512 has been inferred on port 'aximm1' (hls/MatrixMultiplication.cpp:24:15)
+INFO: [HLS 214-115] Burst read of length 256 and bit width 512 has been inferred on port 'aximm2' (hls/MatrixMultiplication.cpp:24:15)
+INFO: [HLS 214-115] Burst write of length 256 and bit width 512 has been inferred on port 'aximm1' (hls/MatrixMultiplication.cpp:30:15)
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57672 ; free virtual = 80030
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57672 ; free virtual = 80030
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58872 ; free virtual = 81140
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57670 ; free virtual = 80029
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58872 ; free virtual = 81140
-INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Main_loop_j' (hls/MatrixMultiplication.cpp:33) in function 'mmult' for pipelining.
-INFO: [HLS 200-489] Unrolling loop 'Main_loop_k' (hls/MatrixMultiplication.cpp:33) in function 'mmult' completely with a factor of 64.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57670 ; free virtual = 80029
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'Main_loop_j' (hls/MatrixMultiplication.cpp:43) in function 'mmult' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Main_loop_k' (hls/MatrixMultiplication.cpp:43) in function 'mmult' completely with a factor of 32.
+INFO: [XFORM 203-131] Reshaping array 'Buffer_1' (hls/MatrixMultiplication.cpp:9) in dimension 2 with a cyclic factor of 12.
+INFO: [XFORM 203-131] Reshaping array 'Buffer_2' (hls/MatrixMultiplication.cpp:10) in dimension 1 with a cyclic factor of 12.
+INFO: [XFORM 203-501] Unrolling loop 'Init_loop_j' (hls/MatrixMultiplication.cpp:25) in function 'mmult' partially with a factor of 12.
 INFO: [XFORM 203-11] Balancing expressions in function 'mmult' (hls/MatrixMultiplication.cpp:3)...63 expression(s) balanced.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58854 ; free virtual = 81122
-INFO: [XFORM 203-541] Flattening a loop nest 'Main_loop_i' (hls/MatrixMultiplication.cpp:18:24) in function 'mmult'.
-INFO: [HLS 200-472] Inferring partial write operation for 'Buffer_1' (hls/MatrixMultiplication.cpp:14:19)
-INFO: [HLS 200-472] Inferring partial write operation for 'Buffer_2' (hls/MatrixMultiplication.cpp:15:19)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58853 ; free virtual = 81122
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57654 ; free virtual = 80013
+INFO: [XFORM 203-541] Flattening a loop nest 'Main_loop_i' (hls/MatrixMultiplication.cpp:30:24) in function 'mmult'.
+INFO: [HLS 200-472] Inferring partial write operation for 'Buffer_2' (hls/MatrixMultiplication.cpp:27:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'Buffer_1' (hls/MatrixMultiplication.cpp:26:19)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57653 ; free virtual = 80012
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'mmult' ...
 WARNING: [SYN 201-107] Renaming port name 'mmult/Output' to 'mmult/Output_r' to avoid the conflict with HDL keywords or other object names.
@@ -88,17 +92,17 @@ INFO: [HLS 200-42] -- Implementing module 'mmult'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-61] Pipelining loop 'Main_loop_i_Main_loop_j'.
-WARNING: [HLS 200-885] Unable to schedule 'load' operation ('Buffer_1_load_2', hls/MatrixMultiplication.cpp:35) on array 'Buffer_1', hls/MatrixMultiplication.cpp:9 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'Buffer_1'.
+WARNING: [HLS 200-885] Unable to schedule 'load' operation ('Buffer_1_load_2', hls/MatrixMultiplication.cpp:45) on array 'Buffer_1', hls/MatrixMultiplication.cpp:9 due to limited memory ports. Please consider using a memory core with more ports or partitioning the array 'Buffer_1'.
 Resolution: For help on HLS 200-885 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-885.html
-INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 32, Depth = 67.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 3, Depth = 31.
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 8.17 seconds; current allocated memory: 114.380 MB.
+INFO: [HLS 200-111]  Elapsed time: 8.11 seconds; current allocated memory: 117.068 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.84 seconds; current allocated memory: 118.604 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.71 seconds; current allocated memory: 122.812 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'mmult' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -110,14 +114,23 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'mmult/Input_2' to 's_axili
 INFO: [RTGEN 206-500] Setting interface mode on port 'mmult/Output_r' to 's_axilite & ap_none'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'mmult' to 's_axilite & ap_ctrl_chain'.
 INFO: [RTGEN 206-100] Bundling port 'Input_1', 'Input_2', 'Output_r' and 'return' to AXI-Lite port control.
-INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_4_full_dsp_1': 2 instance(s).
-INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_2_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_4_full_dsp_1': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_2_max_dsp_1': 22 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_10ns_8ns_17_1_1': 13 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_10ns_17_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_6ns_13_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_6ns_5ns_6_10_seq_1': 1 instance(s).
 INFO: [RTGEN 206-100] Finished creating RTL model for 'mmult'.
-INFO: [HLS 200-111]  Elapsed time: 0.7 seconds; current allocated memory: 125.430 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.14 seconds; current allocated memory: 132.028 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'mmult_mul_8ns_6ns_13_1_1_Multiplier_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'mmult_urem_6ns_5ns_6_10_seq_1_div'
+INFO: [RTMG 210-282] Generating pipelined core: 'mmult_mul_10ns_8ns_17_1_1_Multiplier_1'
+INFO: [RTMG 210-282] Generating pipelined core: 'mmult_mul_8ns_10ns_17_1_1_Multiplier_2'
 INFO: [RTMG 210-278] Implementing memory 'mmult_Buffer_1_ram (RAM)' using block RAMs.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1771.184 ; gain = 1247.750 ; free physical = 58799 ; free virtual = 81088
+INFO: [RTMG 210-278] Implementing memory 'mmult_Buffer_2_ram (RAM)' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1769.207 ; gain = 1245.773 ; free physical = 57596 ; free virtual = 79971
 INFO: [VHDL 208-304] Generating VHDL RTL for mmult.
 INFO: [VLOG 209-307] Generating Verilog RTL for mmult.
 INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
 INFO: [HLS 200-789] **** Estimated Fmax: 171.23 MHz
-INFO: [HLS 200-112] Total elapsed time: 11.77 seconds; peak allocated memory: 125.430 MB.
+INFO: [HLS 200-112] Total elapsed time: 13.27 seconds; peak allocated memory: 132.028 MB.

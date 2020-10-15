@@ -173,6 +173,9 @@ __attribute__((sdx_kernel("mmult", 0))) void mmult(const matrix_type Input_1[(64
 #pragma HLS INTERFACE m_axi port=Output bundle=aximm1
  matrix_type Buffer_1[(64)][(64)];
  matrix_type Buffer_2[(64)][(64)];
+# 21 "hls/MatrixMultiplication.cpp"
+#pragma HLS ARRAY_RESHAPE variable=Buffer_1 cyclic factor=12 dim=2
+#pragma HLS ARRAY_RESHAPE variable=Buffer_2 cyclic factor=12 dim=1
 
  Init_loop_i: for (int i = 0; i < (64); i++)
   Init_loop_j: for (int j = 0; j < (64); j++) {
@@ -181,15 +184,14 @@ __attribute__((sdx_kernel("mmult", 0))) void mmult(const matrix_type Input_1[(64
   }
 
  Main_loop_i: for (int i = 0; i < (64); i++)
-
-
   Main_loop_j: for (int j = 0; j < (64); j++) {
-# 31 "hls/MatrixMultiplication.cpp"
+# 41 "hls/MatrixMultiplication.cpp"
 #pragma HLS pipeline II=1
 
  matrix_type Result = 0;
-   Main_loop_k: for (int k = 0; k < (64); k++) {
+   Main_loop_k: for (int k = 0; k < (64) - 1; k+=2) {
     Result += Buffer_1[i][k] * Buffer_2[k][j];
+    Result += Buffer_1[i][k+1] * Buffer_2[k+1][j];
    }
 
    Output[i * (64) + j] = Result;

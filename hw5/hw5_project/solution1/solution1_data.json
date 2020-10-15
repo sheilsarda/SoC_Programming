@@ -147,7 +147,7 @@
     "Uncertainty": "2.16",
     "IsCombinational": "0",
     "II": "x",
-    "Latency": "139567"
+    "Latency": "19240"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 8.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -168,18 +168,28 @@
       "impl\/vhdl\/mmult_aximm1_m_axi.vhd",
       "impl\/vhdl\/mmult_aximm2_m_axi.vhd",
       "impl\/vhdl\/mmult_Buffer_1.vhd",
+      "impl\/vhdl\/mmult_Buffer_2.vhd",
       "impl\/vhdl\/mmult_control_s_axi.vhd",
       "impl\/vhdl\/mmult_fadd_32ns_32ns_32_4_full_dsp_1.vhd",
       "impl\/vhdl\/mmult_fmul_32ns_32ns_32_2_max_dsp_1.vhd",
+      "impl\/vhdl\/mmult_mul_8ns_6ns_13_1_1.vhd",
+      "impl\/vhdl\/mmult_mul_8ns_10ns_17_1_1.vhd",
+      "impl\/vhdl\/mmult_mul_10ns_8ns_17_1_1.vhd",
+      "impl\/vhdl\/mmult_urem_6ns_5ns_6_10_seq_1.vhd",
       "impl\/vhdl\/mmult.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/mmult_aximm1_m_axi.v",
       "impl\/verilog\/mmult_aximm2_m_axi.v",
       "impl\/verilog\/mmult_Buffer_1.v",
+      "impl\/verilog\/mmult_Buffer_2.v",
       "impl\/verilog\/mmult_control_s_axi.v",
       "impl\/verilog\/mmult_fadd_32ns_32ns_32_4_full_dsp_1.v",
       "impl\/verilog\/mmult_fmul_32ns_32ns_32_2_max_dsp_1.v",
+      "impl\/verilog\/mmult_mul_8ns_6ns_13_1_1.v",
+      "impl\/verilog\/mmult_mul_8ns_10ns_17_1_1.v",
+      "impl\/verilog\/mmult_mul_10ns_8ns_17_1_1.v",
+      "impl\/verilog\/mmult_urem_6ns_5ns_6_10_seq_1.v",
       "impl\/verilog\/mmult.v"
     ],
     "SwDriver": [
@@ -1150,12 +1160,10 @@
       }},
     "Metrics": {"mmult": {
         "Latency": {
-          "LatencyBest": "139567",
-          "LatencyAvg": "143663",
-          "LatencyWorst": "147759",
-          "PipelineIIMin": "139568",
-          "PipelineIIMax": "147760",
-          "PipelineII": "139568 ~ 147760",
+          "LatencyBest": "19240",
+          "LatencyAvg": "19240",
+          "LatencyWorst": "19240",
+          "PipelineII": "19241",
           "PipelineDepth": "",
           "PipelineType": "none"
         },
@@ -1168,46 +1176,38 @@
           {
             "Name": "Init_loop_i",
             "TripCount": "64",
-            "LatencyMin": "8320",
-            "LatencyMax": "16512",
-            "Latency": "8320 ~ 16512",
+            "Latency": "6784",
             "PipelineII": "",
-            "PipelineDepthMin": "130",
-            "PipelineDepthMax": "258",
-            "PipelineDepth": "130 ~ 258",
+            "PipelineDepth": "106",
             "Loops": [{
                 "Name": "Init_loop_j",
-                "TripCount": "64",
-                "LatencyMin": "128",
-                "LatencyMax": "256",
-                "Latency": "128 ~ 256",
+                "TripCount": "6",
+                "Latency": "95",
                 "PipelineII": "",
-                "PipelineDepthMin": "2",
-                "PipelineDepthMax": "4",
-                "PipelineDepth": "2 ~ 4"
+                "PipelineDepth": "15"
               }]
           },
           {
             "Name": "Main_loop_i_Main_loop_j",
             "TripCount": "4096",
-            "Latency": "131106",
-            "PipelineII": "32",
-            "PipelineDepth": "67"
+            "Latency": "12315",
+            "PipelineII": "3",
+            "PipelineDepth": "31"
           }
         ],
         "Area": {
-          "BRAM_18K": "76",
+          "BRAM_18K": "104",
           "AVAIL_BRAM": "4320",
-          "UTIL_BRAM": "1",
-          "DSP": "10",
+          "UTIL_BRAM": "2",
+          "DSP": "108",
           "AVAIL_DSP": "6840",
-          "UTIL_DSP": "~0",
-          "FF": "10591",
+          "UTIL_DSP": "1",
+          "FF": "32907",
           "AVAIL_FF": "2364480",
-          "UTIL_FF": "~0",
-          "LUT": "8426",
+          "UTIL_FF": "1",
+          "LUT": "90051",
           "AVAIL_LUT": "1182240",
-          "UTIL_LUT": "~0",
+          "UTIL_LUT": "7",
           "URAM": "0",
           "AVAIL_URAM": "960",
           "UTIL_URAM": "0"
@@ -1217,7 +1217,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2020-10-15 20:28:13 UTC",
+    "Time": "2020-10-15 22:17:27 UTC",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.1"
   }

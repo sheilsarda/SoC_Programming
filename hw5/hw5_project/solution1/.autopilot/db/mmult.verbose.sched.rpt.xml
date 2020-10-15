@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'mmult'" level="0">
-<item name = "Date">Thu Oct 15 20:28:10 2020
+<item name = "Date">Thu Oct 15 22:17:22 2020
 </item>
 <item name = "Version">2020.1 (Build 2902540 on Wed May 27 20:16:15 MDT 2020)</item>
 <item name = "Project">hw5_project</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">139567, 147759, 1.117 ms, 1.182 ms, 139568, 147760, none</column>
+<column name="">19240, 19240, 0.154 ms, 0.154 ms, 19241, 19241, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,9 +35,9 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- Init_loop_i">8320, 16512, 130 ~ 258, -, -, 64, no</column>
-<column name=" + Init_loop_j">128, 256, 2 ~ 4, -, -, 64, no</column>
-<column name="- Main_loop_i_Main_loop_j">131106, 131106, 67, 32, 1, 4096, yes</column>
+<column name="- Init_loop_i">6784, 6784, 106, -, -, 64, no</column>
+<column name=" + Init_loop_j">95, 95, 15, -, -, 6, no</column>
+<column name="- Main_loop_i_Main_loop_j">12315, 12315, 31, 3, 1, 4096, yes</column>
 </table>
 </item>
 </section>
