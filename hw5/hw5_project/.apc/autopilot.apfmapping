@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="MatrixMultiplication.h" path="/home/centos/ESE532_Projects/hw5/hls/MatrixMultiplication.h"/>
+    <originFiles name="MatrixMultiplication.cpp" path="/home/centos/ESE532_Projects/hw5/hls/MatrixMultiplication.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="Testbench.cpp" path="/home/centos/ESE532_Projects/hw5/hls/Testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

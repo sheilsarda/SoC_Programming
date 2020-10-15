@@ -1,0 +1,11 @@
+Thu Oct 15 16:25:51 2020: Server was asked to start on port: '35967'
+Thu Oct 15 16:25:51 2020: Server is using token UUID: '8c815a7c-6723-4cc5-b254-a87636326aec'
+Thu Oct 15 16:25:51 2020: SESSION_MGR: creating session with session uuid: '6d04a3e9-ade5-4ab9-8d63-1f78fcd2ec76' and name 'default'
+Thu Oct 15 16:25:51 2020: Attempting to start server on port '35967'
+Thu Oct 15 16:25:51 2020: XCD main fifo: created main fifo '/tmp/xcdmain8c815a7c-6723-4cc5-b254-a87636326aec', fd read = 13
+Thu Oct 15 16:25:51 2020: Running Dispatch Server
+Thu Oct 15 16:25:51 2020: Version 2.0.0
+Thu Oct 15 16:26:00 2020: Dispatch Server: Accepted socket connection from client
+Thu Oct 15 16:26:00 2020: EXCHANGE_TOKEN received, server token: 8c815a7c-6723-4cc5-b254-a87636326aec, passed token: 8c815a7c-6723-4cc5-b254-a87636326aec
+Thu Oct 15 16:26:00 2020: SESSION_MGR: creating session with session uuid: '6299df06-c57e-4f81-8a4d-cb820bd6b0c4' and name 'v++_link_mmult'
+Thu Oct 15 16:26:06 2020: SESSION_MGR: closing session for UUID '6299df06-c57e-4f81-8a4d-cb820bd6b0c4' with name 'v++_link_mmult'

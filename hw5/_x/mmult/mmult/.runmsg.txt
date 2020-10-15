@@ -1,0 +1,2 @@
+performing high-level synthesis for kernel: mmult
+Log file: /home/centos/ESE532_Projects/hw5/_x/mmult/mmult/vitis_hls.log

@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vitis Analyzer v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# 
+# Start of session at: Thu Oct 15 16:26:31 2020
+# Process ID: 8275
+# Current directory: /home/centos/ESE532_Projects/hw5
+# Command line: vitis_analyzer ./xclbin.run_summary
+# Log file: /home/centos/ESE532_Projects/hw5/vitis_analyzer.log
+# Journal file: /home/centos/ESE532_Projects/hw5/vitis_analyzer.jou
+#-----------------------------------------------------------
+start_gui
+create_project dummy
+ERROR: [PlanAhead 12-106] *** Exception: java.lang.RuntimeException: File not found: //ui/images/lnf_frank_images/lnf_arrowRight_pressed@2x.png (See /home/centos/ESE532_Projects/hw5/vitis_analyzer_pid8275.debug)
+close_project
+exit
+INFO: [Common 17-206] Exiting vitis_analyzer at Thu Oct 15 16:30:29 2020...

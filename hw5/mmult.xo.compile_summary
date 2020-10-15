@@ -1,0 +1,170 @@
+<ENTRY>
+{
+ "thisFile": "/home/centos/ESE532_Projects/hw5/mmult.xo.compile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Oct 15 16:25:28 2020",
+ "timestampMillis": "1602779128445",
+ "buildStep": {
+  "cmdId": "e178555c-da9c-4846-884f-aecc3a4f82e9",
+  "name": "v++",
+  "logFile": "/home/centos/ESE532_Projects/hw5/_x/mmult/mmult.steps.log",
+  "commandLine": "/opt/Xilinx/Vitis/2020.1/bin/unwrapped/lnx64.o/v++  --xp \"vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --xp \"vivado_prop:run.impl_1.{STEPS.PLACE_DESIGN.ARGS.MORE OPTIONS}={-retiming}\" --xp vivado_prop:run.impl_1.STEPS.PHYS_OPT_DESIGN.IS_ENABLED=true --xp vivado_prop:run.impl_1.STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED=true --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -t sw_emu --config design.cfg --jobs 8 --optimize 3 -c -k mmult -I./common -I./hls/ -ommult.xo hls/MatrixMultiplication.cpp ",
+  "args": [
+   "-t",
+   "sw_emu",
+   "--config",
+   "design.cfg",
+   "--jobs",
+   "8",
+   "--optimize",
+   "3",
+   "-c",
+   "-k",
+   "mmult",
+   "-I./common",
+   "-I./hls/",
+   "-ommult.xo",
+   "hls/MatrixMultiplication.cpp"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/centos/ESE532_Projects/hw5/design.cfg",
+    "content": "platform=xilinx_aws-vu9p-f1_shell-v04261818_201920_2\ndebug=1\nprofile_kernel=data:all:all:all\nsave-temps=1\n\n[connectivity]\nnk=mmult:1:mmult_1\nsp=mmult_1.Input_1:DDR[1]\nsp=mmult_1.Input_2:DDR[2]\nsp=mmult_1.Output:DDR[1]\n"
+   }
+  ],
+  "cwd": "/home/centos/ESE532_Projects/hw5"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Oct 15 16:25:28 2020",
+ "timestampMillis": "1602779128445",
+ "status": {
+  "cmdId": "e178555c-da9c-4846-884f-aecc3a4f82e9",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Oct 15 16:25:42 2020",
+ "timestampMillis": "1602779142327",
+ "buildSummary": {
+  "hardwarePlatform": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xpfm",
+  "hardwareDsa": "xilinx_aws-vu9p-f1_shell-v04261818_201920_2.xsa",
+  "platformDirectory": "/home/centos/src/project_data/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_2",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_COMPILE",
+  "target": "TT_SW_EMU",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "mmult",
+     "file": "/home/centos/ESE532_Projects/hw5/mmult.xo",
+     "reports": []
+    },
+    "sources": [
+     "/home/centos/ESE532_Projects/hw5/hls/MatrixMultiplication.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS"
+   }
+  ],
+  "toolVersion": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Oct 15 16:25:42 2020",
+ "timestampMillis": "1602779142330",
+ "buildStep": {
+  "cmdId": "52eaeda2-e90d-4d27-ba98-058b1bcd915d",
+  "name": "vitis_hls",
+  "logFile": "/home/centos/ESE532_Projects/hw5/_x/mmult/mmult/vitis_hls.log",
+  "commandLine": "vitis_hls -f /home/centos/ESE532_Projects/hw5/_x/mmult/mmult/mmult.tcl -messageDb vitis_hls.pb",
+  "args": [
+   "vitis_hls",
+   "-f",
+   "/home/centos/ESE532_Projects/hw5/_x/mmult/mmult/mmult.tcl",
+   "-messageDb",
+   "vitis_hls.pb"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/centos/ESE532_Projects/hw5"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Oct 15 16:25:42 2020",
+ "timestampMillis": "1602779142330",
+ "status": {
+  "cmdId": "52eaeda2-e90d-4d27-ba98-058b1bcd915d",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Oct 15 16:25:49 2020",
+ "timestampMillis": "1602779149194",
+ "status": {
+  "cmdId": "52eaeda2-e90d-4d27-ba98-058b1bcd915d",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Oct 15 16:25:49 2020",
+ "timestampMillis": "1602779149249",
+ "report": {
+  "path": "/home/centos/ESE532_Projects/hw5/_x/reports/mmult/v++_compile_mmult_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Oct 15 16:25:49 2020",
+ "timestampMillis": "1602779149254",
+ "report": {
+  "path": "/home/centos/ESE532_Projects/hw5/_x/v++_compile_mmult_guidance.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Oct 15 16:25:49 2020",
+ "timestampMillis": "1602779149255",
+ "status": {
+  "cmdId": "e178555c-da9c-4846-884f-aecc3a4f82e9",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>

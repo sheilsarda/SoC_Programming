@@ -1,0 +1,10 @@
+Thu Oct 15 16:26:01 2020: Server was asked to start on port: '37745'
+Thu Oct 15 16:26:01 2020: Server is using token UUID: 'bea3ec66-9edd-4f58-9850-15450bcfead7'
+Thu Oct 15 16:26:01 2020: Attempting to start server on port '37745'
+Thu Oct 15 16:26:01 2020: XRC main fifo: created main fifo '/tmp/xrcmainbea3ec66-9edd-4f58-9850-15450bcfead7', fd read = 13
+Thu Oct 15 16:26:01 2020: Running Rule Check Server
+Thu Oct 15 16:26:01 2020: Version 1.6.1
+Thu Oct 15 16:26:01 2020: Rule Check Server: Accepted socket connection from client
+Thu Oct 15 16:26:01 2020: EXCHANGE_TOKEN received, server token: bea3ec66-9edd-4f58-9850-15450bcfead7, passed token: bea3ec66-9edd-4f58-9850-15450bcfead7
+Thu Oct 15 16:26:01 2020: SESSION_MGR: creating session with session uuid: '6146faac-c753-4246-9ccd-a9c9420d8480' and name 'v++_link_mmult'
+Thu Oct 15 16:26:06 2020: SESSION_MGR: closing session for UUID '6146faac-c753-4246-9ccd-a9c9420d8480' with name 'v++_link_mmult'

@@ -1,0 +1,14 @@
+INFO: [v++ 60-1306] Additional information associated with this v++ compile can be found at:
+	Reports: /home/centos/ESE532_Projects/hw5/_x/reports/mmult
+	Log files: /home/centos/ESE532_Projects/hw5/_x/logs/mmult
+INFO: [v++ 60-1657] Initializing dispatch client.
+INFO: [v++ 60-1548] Creating build summary session with primary output /home/centos/ESE532_Projects/hw5/mmult.xo.compile_summary, at Thu Oct 15 16:24:37 2020
+INFO: [v++ 60-1316] Initiating connection to rulecheck server, at Thu Oct 15 16:24:37 2020
+INFO: [v++ 60-1315] Creating rulecheck session with output '/home/centos/ESE532_Projects/hw5/_x/reports/mmult/v++_compile_mmult_guidance.html', at Thu Oct 15 16:24:38 2020
+ERROR: [v++ 60-1258] No valid platform was found that matches 'xilinx_aws-vu9p-f1_shell-v04261818_201920_2'. Please make sure that the platform is specified correctly, and the platform has the right version number. The platform repo paths are:
+	/opt/Xilinx/Vitis/2020.1/platforms
+The valid platforms found from the above repo paths are:
+
+ERROR: [v++ 60-587] Failed to add a platform: specified platform xilinx_aws-vu9p-f1_shell-v04261818_201920_2 is not found or is not valid
+ERROR: [v++ 60-592] Failed to finish compilation
+INFO: [v++ 60-1653] Closing dispatch client.
