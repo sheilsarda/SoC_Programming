@@ -1,0 +1,15 @@
+
+ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter
+        Link encap: Ethernet HWaddr: 00-0E-C6-C5-C6-66
+        
+inet addr:169.254.138.105 Mask: 255.255.0.0
+
+96
+inet addr:169.254.138.106 Mask: 255.255.0.0
+
+ifconfig eth0 169.254.138.106 netmask 255.255.0.0
+
+        MTU: 1500 Speed:1000.00 Mbps
+        Admin status:UP Oper status:OPERATIONAL
+        RX packets:66 dropped:0 errors:0 unkown:0
+        TX packets:507 dropped:0 errors:0 txqueuelen:0
