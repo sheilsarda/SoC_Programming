@@ -88,19 +88,19 @@ int main(int argc, char *argv[]) {
                  NULL,
                  NULL);  
   
-  float *A[NUM_MAT] = (float*)q.enqueueMapBuffer(A_buf,
+  float *A = (float*)q.enqueueMapBuffer(A_buf,
                                            CL_TRUE,
                                            CL_MAP_WRITE | CL_MAP_READ,
                                            0,
                                            NUM_MAT*elements_per_iteration*sizeof(float));
 
-  float *B[NUM_MAT] = (float*)q.enqueueMapBuffer(B_buf,
+  float *B = (float*)q.enqueueMapBuffer(B_buf,
                                            CL_TRUE,
                                            CL_MAP_WRITE | CL_MAP_READ,
                                            0,
                                            NUM_MAT*elements_per_iteration*sizeof(float));
   
-  float *C[NUM_MAT] = (float*)q.enqueueMapBuffer(C_buf,
+  float *C = (float*)q.enqueueMapBuffer(C_buf,
                                            CL_TRUE,
                                            CL_MAP_WRITE | CL_MAP_READ,
                                            0,
@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
 
 
 
-  // for (int m = 0; m < NUM_MAT; m++) {
+  for (int m = 0; m < NUM_MAT; m++) {
   //   A[m] = (float *)malloc(bytes_per_iteration);
   //   B[m] = (float *)malloc(bytes_per_iteration);
   //   C[m] = (float *)malloc(bytes_per_iteration);
@@ -122,16 +122,16 @@ int main(int argc, char *argv[]) {
   //     return 2;
   //   }
 
-    A_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
-                     bytes_per_iteration, A[m], &err);
-    B_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
-                     bytes_per_iteration, B[m], &err);
-    C_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_WRITE_ONLY,
-                        bytes_per_iteration, C[m], &err);
+    //A[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
+    //                 bytes_per_iteration, A[m], &err);
+    //B[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
+    //                 bytes_per_iteration, B[m], &err);
+    //C[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_WRITE_ONLY,
+    //                    bytes_per_iteration, C[m], &err);
   }
   
   timer2.add("Populating buffer inputs");
-  init_arrays(A, B);
+  init_arrays(&A, &B);
   
   // ------------------------------------------------------------------------------------
   // Step 3: Run the kernel
@@ -142,15 +142,15 @@ int main(int argc, char *argv[]) {
     std::vector<cl::Event> write_events, exec_events, read_events;
     cl::Event write_ev, exec_ev, read_ev;
 
-    krnl_mmult.setArg(0, A_buf[i%NUM_MAT]);
-    krnl_mmult.setArg(1, B_buf[i%NUM_MAT]);
-    krnl_mmult.setArg(2, C_buf[i%NUM_MAT]);
-    q.enqueueMigrateMemObjects({A_buf[i%NUM_MAT], B_buf[i%NUM_MAT]}, 0 /* 0 means from host*/, NULL,
+    krnl_mmult.setArg(0, A[i%NUM_MAT]);
+    krnl_mmult.setArg(1, B[i%NUM_MAT]);
+    krnl_mmult.setArg(2, C[i%NUM_MAT]);
+    q.enqueueMigrateMemObjects({ A[i%NUM_MAT], B[i%NUM_MAT]}, 0 /* 0 means from host*/, NULL,
                               &write_ev);
     write_events.push_back(write_ev);
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
     exec_events.push_back(exec_ev);
-    q.enqueueMigrateMemObjects({C_buf[i%NUM_MAT]}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
+    q.enqueueMigrateMemObjects({C[i%NUM_MAT]}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
   }
 
