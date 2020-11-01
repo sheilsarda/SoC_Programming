@@ -20,18 +20,19 @@ static void init_arrays(float *A[NUM_MAT],
                         float *B[NUM_MAT])
 {
      for (int m = 0; m < NUM_MAT; m++) {
-    	for (int c = 0; c < CHUNKS; c++) {
+      for (int c = 0; c < CHUNKS; c++) {
           for (int i = 0; i < N; i++) {
                for (int j = 0; j < N; j++) {
                     A[m][ c * N * N + i * N + j] = 1+i*N+j;
                     B[m][ c * N * N + i * N + j] = rand() % (N * N);
                }
           }
-    	}
+      }
      }
 }
 
 int main(int argc, char *argv[]) {
+
   EventTimer timer1, timer2;
   timer1.add("Main program");
 
@@ -59,26 +60,67 @@ int main(int argc, char *argv[]) {
   // ------------------------------------------------------------------------------------
   timer2.add("Allocate contiguous OpenCL buffers");
   // Create the buffers and allocate memory
-  cl::Buffer A_buf[NUM_MAT];
-  cl::Buffer B_buf[NUM_MAT];
-  cl::Buffer C_buf[NUM_MAT];
-  float *A[NUM_MAT], *B[NUM_MAT], *C[NUM_MAT];
+
   size_t elements_per_iteration = CHUNKS * N * N;
   size_t bytes_per_iteration = elements_per_iteration * sizeof(float);
 
-  for (int m = 0; m < NUM_MAT; m++) {
-    A[m] = (float *)malloc(bytes_per_iteration);
-    B[m] = (float *)malloc(bytes_per_iteration);
-    C[m] = (float *)malloc(bytes_per_iteration);
-    if (!A[m] || !B[m] || !C[m]) {
-      if (A[m])
-        free(A[m]);
-      if (B[m])
-        free(B[m]);
-      if (C[m])
-        free(C[m]);
-      return 2;
-    }
+  // cl::Buffer A_buf[NUM_MAT];
+  cl::Buffer A_buf(context,
+                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
+                                           CL_MEM_ALLOC_HOST_PTR),
+                 NUM_MAT*elements_per_iteration*sizeof(float),
+                 NULL,
+                 NULL);
+
+  // cl::Buffer B_buf[NUM_MAT];
+  cl::Buffer B_buf(context,
+                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
+                                           CL_MEM_ALLOC_HOST_PTR),
+                 NUM_MAT*elements_per_iteration*sizeof(float),
+                 NULL,
+                 NULL);
+  
+  // cl::Buffer C_buf[NUM_MAT];
+  cl::Buffer C_buf(context,
+                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
+                                           CL_MEM_ALLOC_HOST_PTR),
+                 NUM_MAT*elements_per_iteration*sizeof(float),
+                 NULL,
+                 NULL);  
+  
+  float *A[NUM_MAT] = (float*)q.enqueueMapBuffer(A_buf,
+                                           CL_TRUE,
+                                           CL_MAP_WRITE | CL_MAP_READ,
+                                           0,
+                                           NUM_MAT*elements_per_iteration*sizeof(float));
+
+  float *B[NUM_MAT] = (float*)q.enqueueMapBuffer(B_buf,
+                                           CL_TRUE,
+                                           CL_MAP_WRITE | CL_MAP_READ,
+                                           0,
+                                           NUM_MAT*elements_per_iteration*sizeof(float));
+  
+  float *C[NUM_MAT] = (float*)q.enqueueMapBuffer(C_buf,
+                                           CL_TRUE,
+                                           CL_MAP_WRITE | CL_MAP_READ,
+                                           0,
+                                           NUM_MAT*elements_per_iteration*sizeof(float));
+
+
+
+  // for (int m = 0; m < NUM_MAT; m++) {
+  //   A[m] = (float *)malloc(bytes_per_iteration);
+  //   B[m] = (float *)malloc(bytes_per_iteration);
+  //   C[m] = (float *)malloc(bytes_per_iteration);
+  //   if (!A[m] || !B[m] || !C[m]) {
+  //     if (A[m])
+  //       free(A[m]);
+  //     if (B[m])
+  //       free(B[m]);
+  //     if (C[m])
+  //       free(C[m]);
+  //     return 2;
+  //   }
 
     A_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
                      bytes_per_iteration, A[m], &err);
@@ -112,7 +154,7 @@ int main(int argc, char *argv[]) {
     read_events.push_back(read_ev);
   }
 
-  q.finish();
+
   
   // ------------------------------------------------------------------------------------
   // Step 4: Release Allocated Resources
@@ -121,12 +163,18 @@ int main(int argc, char *argv[]) {
   FILE *file = fopen("output_fpga.bin", "wb");
   for (int m = 0; m < NUM_MAT; m++) {
     fwrite(C[m], 1, bytes_per_iteration, file);
-    free(A[m]);
-    free(B[m]);
-    free(C[m]);
+    // free(A[m]);
+    // free(B[m]);
+    // free(C[m]);
   }
   fclose(file);
 
+  q.enqueueUnmapMemObject(A_buf, A);
+  q.enqueueUnmapMemObject(B_buf, B);
+  q.enqueueUnmapMemObject(C_buf, C);
+
+  q.finish();
+  
   delete[] fileBuf;
   
   
