@@ -1,0 +1,49 @@
+==============
+2A
+==============
+root@ultra96v2-2020-1:~# ./mmult_cpu
+Running 1x256 iterations of 32x32 floating point mmult...
+--------------- Key execution times ---------------
+Allocating arrays                :    0.366 ms
+Running mmult_cpu                :   11.561 ms
+Writing output to output_cpu.bin :    0.468 ms
+--------------- Total time ---------------
+Main program :   13.307 ms
+
+==============
+2B
+==============
+root@ultra96v2-2020-1:~/sd_card# export XILINX_XRT=/usr
+root@ultra96v2-2020-1:~/sd_card# ./host kernel.xclbin
+Running 1x256 iterations of 32x32 task pipelined floating point mmult...
+INFO: Found Xilinx Platform
+INFO: Loading 'kernel.xclbin'
+XRT build version: 2.6.0
+Build hash: 2d6bfe4ce91051d4e5b499d38fc493586dd4859a
+Build date: 2020-05-26 18:53:06
+Git branch: 2020.1
+PID: 755
+UID: 0
+[Sun Oct 18 01:12:31 2020]
+HOST: ultra96v2-2020-1
+EXE: /home/root/sd_card/host
+[XRT] WARNING: unaligned host pointer '0x5589576460' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589574460' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x558957b190' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x558957c1a0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x558957d1b0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589581a90' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589582aa0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589583ab0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589584ac0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589585ad0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x5589586ae0' detected, this leads to extra memcpy
+--------------- Key execution times ---------------
+OpenCL Initialization              :  239.494 ms
+Allocate contiguous OpenCL buffers :   17.084 ms
+Populating buffer inputs           :    0.316 ms
+Running kernel                     :   37.005 ms
+Writing output to output_fpga.bin  :    2.670 ms
+--------------- Total time ---------------
+Main program :  297.095 ms
+root@ultra96v2-2020-1:~/sd_card#

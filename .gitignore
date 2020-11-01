@@ -1,5 +1,8 @@
 # Prerequisites
 *.d
+*.img
+*.xclbin
+/hw6/built programs/*.*
 
 # Object files
 *.o
