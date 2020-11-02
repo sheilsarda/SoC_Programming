@@ -145,12 +145,12 @@ int main(int argc, char *argv[]) {
     krnl_mmult.setArg(0, A[i%NUM_MAT]);
     krnl_mmult.setArg(1, B[i%NUM_MAT]);
     krnl_mmult.setArg(2, C[i%NUM_MAT]);
-    q.enqueueMigrateMemObjects({ A_buf[i%NUM_MAT], B_buf[i%NUM_MAT]}, 0 /* 0 means from host*/, NULL,
+    q.enqueueMigrateMemObjects({ A_buf, B_buf}, 0 /* 0 means from host*/, NULL,
                               &write_ev);
     write_events.push_back(write_ev);
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
     exec_events.push_back(exec_ev);
-    q.enqueueMigrateMemObjects({C_buf[i%NUM_MAT]}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
+    q.enqueueMigrateMemObjects({C_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
   }
 
@@ -162,7 +162,7 @@ int main(int argc, char *argv[]) {
   timer2.add("Writing output to output_fpga.bin");
   FILE *file = fopen("output_fpga.bin", "wb");
   for (int m = 0; m < NUM_MAT; m++) {
-    fwrite(C[m], 1, bytes_per_iteration, file);
+    fwrite((void *)((&C)[m]), 1, bytes_per_iteration, file);
     // free(A[m]);
     // free(B[m]);
     // free(C[m]);
