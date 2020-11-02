@@ -1,0 +1,7 @@
+Written Answers
+===================
+2D
+===================
+- Register utilization is currently only 22%. If we were to implement pre-fetching for parts of the arrays required for computation, then we can eliminate the interleaved read calls made during the execution of the program.
+
+- Host write bandwidth utilization was 1.229%, leaving room to improve efficiency of host write transfers. To implement this, we can aggregate the data to be written in a single buffer and send it over PCIe to DDR.

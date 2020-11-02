@@ -1,0 +1,47 @@
+2D Serial output
+
+root@ultra96v2-2020-1:~# ~[  358.249574] [drm] Pid 751 opened device
+[  358.253495] [drm] Pid 751 closed device
+[  358.257727] [drm] Pid 751 opened device
+[  358.261655] [drm] Pid 751 closed device
+[  358.283930] [drm] Pid 751 opened device
+[  358.549317] [drm] Finding IP_LAYOUT section header
+[  358.549322] [drm] Section IP_LAYOUT details:
+[  358.554146] [drm]   offset = 0x54fff0
+[  358.558413] [drm]   size = 0x58
+[  358.562078] [drm] Finding DEBUG_IP_LAYOUT section header
+[  358.565205] [drm] Section DEBUG_IP_LAYOUT details:
+[  358.570508] [drm]   offset = 0x308
+[  358.575296] [drm]   size = 0x2d8
+[  358.578706] [drm] Finding CONNECTIVITY section header
+[  358.581928] [drm] Section CONNECTIVITY details:
+[  358.586973] [drm]   offset = 0x550048
+[  358.591492] [drm]   size = 0x28
+[  358.595175] [drm] Finding MEM_TOPOLOGY section header
+[  358.598307] [drm] Section MEM_TOPOLOGY details:
+[  358.603352] [drm]   offset = 0x54fef8
+[  358.607873] [drm]   size = 0xf8
+[  358.611561] [drm] Download new XCLBIN 7F243BA4-5807-48A3-84F8-33508DA6561B done.
+[  358.614713] [drm] zocl_xclbin_read_axlf 7f243ba4-5807-48a3-84f8-33508da6561b ret: 0.
+[  358.627425] [drm] -> Hold xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, from ref=0
+[  358.635171] [drm] <- Hold xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, to ref=1
+[  358.642695] [drm] No ERT scheduler on MPSoC, using KDS
+[  358.655162] [drm] 5 non-zero interrupt-id CUs out of 6 CUs
+[  358.655258] [drm] scheduler config ert(0)
+[  358.660738] [drm]   cus(1)
+[  358.664747] [drm]   slots(16)
+[  358.667449] [drm]   num_cu_masks(1)
+[  358.670412] [drm]   cu_shift(16)
+[  358.673894] [drm]   cu_base(0xb0000000)
+[  358.677107] [drm]   polling(0)
+[  358.680969] [drm] -> Release xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, from ref=1
+[  358.684028] [drm] now xclbin can be changed
+[  358.691770] [drm] <- Release xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, to ref=0
+[  358.696384] [drm] -> Hold xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, from ref=0
+[  358.703956] [drm] <- Hold xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, to ref=1
+[  358.721791] [drm:zocl_userptr_bo_ioctl [zocl]] *ERROR* User ptr not PAGE aligned
+[  358.737996] [drm:zocl_userptr_bo_ioctl [zocl]] *ERROR* User ptr not PAGE aligned
+[  359.264290] [drm] -> Release xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, from ref=1
+[  359.264295] [drm] now xclbin can be changed
+[  359.272049] [drm] <- Release xclbin 7F243BA4-5807-48A3-84F8-33508DA6561B, to ref=0
+[  359.303134] [drm] Pid 751 closed device

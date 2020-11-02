@@ -47,3 +47,40 @@ Writing output to output_fpga.bin  :    2.670 ms
 --------------- Total time ---------------
 Main program :  297.095 ms
 root@ultra96v2-2020-1:~/sd_card#
+
+
+===============
+2D
+===============
+root@ultra96v2-2020-1:~/sd_card# export XILINX_XRT=/usr
+root@ultra96v2-2020-1:~/sd_card# ./host kernel.xclbin
+Running 1x256 iterations of 32x32 task pipelined floating point mmult...
+INFO: Found Xilinx Platform
+INFO: Loading 'kernel.xclbin'
+XRT build version: 2.6.0
+Build hash: 2d6bfe4ce91051d4e5b499d38fc493586dd4859a
+Build date: 2020-05-26 18:53:06
+Git branch: 2020.1
+PID: 751
+UID: 0
+[Sun Oct 18 02:59:42 2020]
+HOST: ultra96v2-2020-1
+EXE: /home/root/sd_card/host
+[XRT] WARNING: unaligned host pointer '0x55a778a460' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a7778f90' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a777d290' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a777e2a0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a777f2b0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a77802c0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a77812d0' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a778b860' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a778c870' detected, this leads to extra memcpy
+[XRT] WARNING: unaligned host pointer '0x55a778e890' detected, this leads to extra memcpy
+--------------- Key execution times ---------------
+OpenCL Initialization              :  542.213 ms
+Allocate contiguous OpenCL buffers :   24.504 ms
+Populating buffer inputs           :    0.315 ms
+Running kernel                     :  466.139 ms
+Writing output to output_fpga.bin  :    2.405 ms
+--------------- Total time ---------------
+Main program : 1035.862 ms
