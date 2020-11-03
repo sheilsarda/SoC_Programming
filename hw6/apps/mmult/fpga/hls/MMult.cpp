@@ -18,7 +18,7 @@ void read(  const float *arrayA,
             hls::stream<float> &inB,
             unsigned int numInputs){
 
-    for(int i = 0; i < numInputs; ++i){
+    for(unsigned int i = 0; i < numInputs; ++i){
         
         #pragma HLS PIPELINE
         inA.write(arrayA[i]);
@@ -32,7 +32,10 @@ void exec(  hls::stream<float> &inA,
             hls::stream<float> &outStream){
     
     float A_tmp[N][N];
+    #pragma HLS array_partition variable=A_tmp block factor=16 dim=2
+    
     float B_tmp[N][N];
+    #pragma HLS array_partition variable=B_tmp block factor=16 dim=1
 
     for (int c = 0; c < CHUNKS; c++) {
         
@@ -75,9 +78,9 @@ void exec(  hls::stream<float> &inA,
 
 void write( hls::stream<float> &outStream,
             int *output,
-            int numInputs){
+            unsigned int numInputs){
 
-    for(int i = 0; i < numInputs; i++)
+    for(unsigned int i = 0; i < numInputs; i++)
         output[i] = outStream.read();
 }
 
@@ -85,6 +88,7 @@ void write( hls::stream<float> &outStream,
 void mmult_fpga(float A[CHUNKS * N * N], float B[CHUNKS * N * N],
                 float C[CHUNKS * N * N]) {
 
+    #pragma HLS INTERFACE ap_ctr_chain port=return bundle=control
     #pragma HLS DATAFLOW
     hls::stream<float> inA;
     hls::stream<float> inB;
@@ -94,8 +98,6 @@ void mmult_fpga(float A[CHUNKS * N * N], float B[CHUNKS * N * N],
     exec(inA, inB, outStream);
     write(outStream, C, CHUNKS * N *N);
 }
-
-
 
 
 
