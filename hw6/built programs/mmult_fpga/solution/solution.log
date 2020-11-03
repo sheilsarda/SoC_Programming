@@ -1,0 +1,53 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.1 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-435] Setting 'config_flow -target' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'config_flow -target' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'config_flow -target' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'config_flow -target' configuration: config_interface -default_slave_interface=s_axilite
+INFO: [HLS 200-435] Setting 'config_flow -target' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1.8ns.
+INFO: [HLS 200-10] Analyzing design file '/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp' ... 
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' target.
+INFO: [HLS 214-115] Burst write of length 64 and bit width 512 has been inferred on port 'gmem' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:28:22)
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.012 ; gain = 1293.977 ; free physical = 20948 ; free virtual = 32664
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.012 ; gain = 1293.977 ; free physical = 20948 ; free virtual = 32664
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.012 ; gain = 1293.977 ; free physical = 20946 ; free virtual = 32663
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1676.012 ; gain = 1293.977 ; free physical = 20946 ; free virtual = 32663
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_29_5' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:31) in function 'mmult_fpga' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_32_6' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:31) in function 'mmult_fpga' completely with a factor of 32.
+INFO: [XFORM 203-101] Partitioning array 'A_tmp' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:15) in dimension 2 with a block factor 16.
+INFO: [XFORM 203-101] Partitioning array 'B_tmp' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:15) in dimension 1 with a block factor 16.
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[0]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[1]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[2]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[3]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[4]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[5]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[6]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[7]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[8]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[9]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[10]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[11]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[12]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[13]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[14]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[15]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[0]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[1]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[2]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[3]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[4]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[5]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[6]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[7]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[8]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[9]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).
+WARNING: [ANALYSIS 214-31] The program may have out of bound access of array variable 'A_tmp[10]' in function 'mmult_fpga' (/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/fpga/hls/MMult.cpp:23:2).

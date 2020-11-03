@@ -1,0 +1,158 @@
+Profile Summary
+Generated on: 2020-10-18 03:28:22
+Msec since Epoch: 1602991702718
+Target platform: 
+Tool version: 2020.1
+XRT build version: 2.6.0
+Build version branch: 2020.1
+Build version hash: 2d6bfe4ce91051d4e5b499d38fc493586dd4859a
+Build version date: 2020-05-26 18:53:06 
+Target devices: edge-0
+Flow mode: System Run
+
+OpenCL API Calls
+API Name,Number Of Calls,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+clCreateProgramWithBinary,1,186.019,186.019,186.019,186.019,
+clReleaseProgram,1,60.4153,60.4153,60.4153,60.4153,
+clReleaseMemObject,1548,59.2618,0.02073,0.0382828,0.17629,
+clEnqueueTask,256,58.7877,0.22264,0.22964,0.58635,
+clEnqueueMigrateMemObjects,512,50.8545,0.08875,0.0993252,0.65901,
+clRetainMemObject,1536,47.2737,0.02066,0.0307771,0.13791,
+clReleaseEvent,1536,33.4384,0.02012,0.0217698,0.07044,
+clCreateBuffer,12,24.6318,0.13799,2.05265,15.05,
+clRetainEvent,768,17.2182,0.0204,0.0224195,0.24263,
+clSetKernelArg,768,16.818,0.0206,0.0218985,0.07502,
+clCreateKernel,1,5.76574,5.76574,5.76574,5.76574,
+clCreateContext,1,3.95013,3.95013,3.95013,3.95013,
+clReleaseContext,1,0.24924,0.24924,0.24924,0.24924,
+clGetPlatformIDs,2,0.15313,0.02493,0.076565,0.1282,
+clReleaseKernel,1,0.12149,0.12149,0.12149,0.12149,
+clGetDeviceIDs,2,0.05706,0.02164,0.02853,0.03542,
+clCreateCommandQueue,1,0.05638,0.05638,0.05638,0.05638,
+clGetPlatformInfo,2,0.04929,0.022,0.024645,0.02729,
+clReleaseDevice,2,0.04923,0.02233,0.024615,0.0269,
+clRetainDevice,2,0.04509,0.02082,0.022545,0.02427,
+clReleaseCommandQueue,1,0.03803,0.03803,0.03803,0.03803,
+clFinish,1,0.02966,0.02966,0.02966,0.02966,
+
+
+Kernel Execution
+Kernel,Number Of Enqueues,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),
+mmult_fpga,256,46.29,0.14925,0.18082,0.40656,
+
+
+Compute Unit Utilization
+Device,Compute Unit,Kernel,Global Work Size,Local Work Size,Number Of Calls,Dataflow Execution,Max Overlapping Executions,Dataflow Acceleration,Total Time (ms),Minimum Time (ms),Average Time (ms),Maximum Time (ms),Clock Frequency (MHz),
+edge-0,mmult_fpga_1,mmult_fpga,1:1:1,1:1:1,256,Yes,1,1.000000x,3.56696,0.0137733,0.0139334,0.01858,300,
+
+
+Data Transfer: Host to Global Memory
+Context:Number of Devices,Transfer Type,Number Of Buffer Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Buffer Size (KB),Total Time (ms),Average Time (ms),
+context0:1,READ,256,66.180307,0.689378,4.096,15.844230,0.061892,
+context0:1,WRITE,256,129.559794,1.349581,8.192,16.186750,0.063229,
+
+
+Data Transfer: Kernels to Global Memory
+Device,Compute Unit/Port Name,Kernel Arguments,Memory Resources,Transfer Type,Number Of Transfers,Transfer Rate (MB/s),Average Bandwidth Utilization (%),Average Size (KB),Average Latency (ns),
+edge-0,mmult_fpga_1/m_axi_gmem,A|B|C,HP0,READ,32768,1095.22,9.50713,0.064,169.817,
+edge-0,mmult_fpga_1/m_axi_gmem,A|B|C,HP0,WRITE,1024,3236.45,28.0941,1.024,316.396,
+
+
+Top Data Transfer: Kernels to Global Memory
+Device,Compute Unit,Number of Transfers,Average Bytes per Transfer,Transfer Efficiency (%),Total Data Transfer (MB),Total Write (MB),Total Read (MB),Total Transfer Rate (MB/s),
+edge-0,mmult_fpga_1,33792,93.0909,2.27273,3.14573,1.04858,2.09715,1405.09,
+
+
+Top Kernel Execution
+Kernel Instance Address,Kernel,Context ID,Command Queue ID,Device,Start Time (ms),Duration (ms),Global Work Size,Local Work Size,
+368526439200,mmult_fpga,0,0,edge-0,494.214,0.40656,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,757.914,0.23411,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,912.202,0.22816,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,585.57,0.22728,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,919.446,0.22669,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,803.255,0.21977,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,592.817,0.21293,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,812.427,0.21243,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,747.077,0.20499,1:1:1,1:1:1,
+368526439200,mmult_fpga,0,0,edge-0,496.48,0.20087,1:1:1,1:1:1,
+
+
+Top Memory Writes: Host to Global Memory
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Writing Rate(MB/s),
+984969216,0,0,552.37,0.150910,8.192,54.284010,
+982835200,0,0,706.636,0.122780,8.192,66.720964,
+984969216,0,0,493.386,0.120360,8.192,68.062479,
+993136640,0,0,868.223,0.109920,8.192,74.526929,
+1009852416,0,0,920.811,0.104530,8.192,78.369846,
+1009852416,0,0,884.561,0.072660,8.192,112.744288,
+982835200,0,0,495.756,0.070110,8.192,116.844958,
+993136640,0,0,497.891,0.066180,8.192,123.783620,
+1009852416,0,0,499.682,0.065140,8.192,125.759902,
+984969216,0,0,864.658,0.065090,8.192,125.856506,
+
+
+Top Memory Reads: Host to Global Memory
+Buffer Address,Context ID,Command Queue ID,Start Time (ms),Duration (ms),Buffer Size (KB),Reading Rate(MB/s),
+982831104,0,0,618.664,0.108990,4.096,37.581429,
+993132544,0,0,780.088,0.108320,4.096,37.813885,
+970346496,0,0,783.694,0.106710,4.096,38.384406,
+982831104,0,0,945.358,0.106340,4.096,38.517961,
+970346496,0,0,515.194,0.105100,4.096,38.972407,
+1009848320,0,0,615.043,0.104160,4.096,39.324117,
+1009848320,0,0,941.739,0.104060,4.096,39.361907,
+982831104,0,0,494.857,0.101220,4.096,40.466311,
+993132544,0,0,496.977,0.094460,4.096,43.362270,
+970346496,0,0,776.513,0.071720,4.096,57.110987,
+
+
+Guidance Parameters
+Parameter,Element,Value,
+DEVICE_EXEC_TIME,edge-0,463.596320,
+CU_CALLS,edge-0|mmult_fpga_1,256,
+NUM_MONITORS,edge-0|XCL_PERF_MON_ACCEL|1,1,
+NUM_MONITORS,edge-0|XCL_PERF_MON_MEMORY|1,1,
+NUM_MONITORS,edge-0|XCL_PERF_MON_STR|0,0,
+MIGRATE_MEM,host,512,
+MEMORY_USAGE,edge-0|HP0,1,
+MEMORY_USAGE,edge-0|HP1,0,
+MEMORY_USAGE,edge-0|HP2,0,
+MEMORY_USAGE,edge-0|HP3,0,
+MEMORY_USAGE,edge-0|HPC0,0,
+MEMORY_USAGE,edge-0|HPC1,0,
+PLRAM_DEVICE,all,1,
+HBM_DEVICE,all,0,
+KDMA_DEVICE,all,0,
+P2P_DEVICE,all,0,
+P2P_HOST_TRANSFERS,host,0,
+PORT_BIT_WIDTH,mmult_fpga_1/m_axi_gmem,512,
+KERNEL_COUNT,mmult_fpga,1,
+OBJECTS_RELEASED,all,1,
+TRACE_MEMORY,all,FIFO,
+CU_CONTEXT_EN,all,0,
+MAX_PARALLEL_KERNEL_ENQUEUES,mmult_fpga,1,
+COMMAND_QUEUE_OOO,368526270432,0,
+KERNEL_BUFFER_INFO,mmult_fpga|A|HP0|0,4096,
+KERNEL_BUFFER_INFO,mmult_fpga|B|HP0|0,4096,
+KERNEL_BUFFER_INFO,mmult_fpga|C|HP0|0,4096,
+TRACE_BUFFER_FULL,edge-0,0,
+MEMORY_TYPE_BIT_WIDTH,edge-0|DDR,512,
+MEMORY_TYPE_BIT_WIDTH,edge-0|HBM,256,
+MEMORY_TYPE_BIT_WIDTH,edge-0|PLRAM,512,
+XRT_INI_SETTING,continuous_trace,0,
+XRT_INI_SETTING,continuous_trace_interval_ms,10,
+XRT_INI_SETTING,data_transfer_trace,coarse,
+XRT_INI_SETTING,launch_waveform,batch,
+XRT_INI_SETTING,lop_trace,0,
+XRT_INI_SETTING,power_profile,0,
+XRT_INI_SETTING,profile,1,
+XRT_INI_SETTING,stall_trace,all,
+XRT_INI_SETTING,timeline_trace,1,
+XRT_INI_SETTING,trace_buffer_size,4095M,
+XRT_INI_SETTING,verbosity,4,
+BUFFER_RD_ACTIVE_TIME_MS,all,15.8442,
+BUFFER_WR_ACTIVE_TIME_MS,all,16.1868,
+BUFFER_TX_ACTIVE_TIME_MS,all,464.731,
+APPLICATION_RUN_TIME_MS,all,1023.33,
+TOTAL_KERNEL_RUN_TIME_MS,all,463.596,
+
+
