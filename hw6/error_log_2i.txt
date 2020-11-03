@@ -1,0 +1,210 @@
+sheils@big16:~/ese532_code/hw6/apps/mmult> ./compile_on_biglab.sh
+/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/v++ --target hw --link --config fpga/design.cfg -o"kernel.xclbin" kernel.xo
+Option Map File Used: '/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/data/vitis/vpp/optMap.xml'
+
+****** v++ v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+
+sheils@big16:~/ese532_code/hw6/apps/mmult>
+sheils@big16:~/ese532_code/hw6/apps/mmult>
+sheils@big16:~/ese532_code/hw6/apps/mmult>
+sheils@big16:~/ese532_code/hw6/apps/mmult> ./compile_on_biglab.sh
+/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/v++ --target hw --link --config fpga/design.cfg -o"kernel.xclbin" kernel.xo
+Option Map File Used: '/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/data/vitis/vpp/optMap.xml'
+
+****** v++ v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+INFO: [v++ 60-1306] Additional information associated with this v++ link can be found at:
+        Reports: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/reports/link
+        Log files: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/logs/link
+INFO: [v++ 60-1657] Initializing dispatch client.
+Running Dispatch Server on port:35011
+INFO: [v++ 60-1548] Creating build summary session with primary output /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xclbin.link_summary, at Tue Nov  3 01:04:44 2020
+INFO: [v++ 60-1316] Initiating connection to rulecheck server, at Tue Nov  3 01:04:44 2020
+Running Rule Check Server on port:38679
+INFO: [v++ 60-1315] Creating rulecheck session with output '/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/reports/link/v++_link_kernel_guidance.html', at Tue Nov  3 01:04:45 2020
+INFO: [v++ 60-895]   Target platform: /mnt/castor/seas_home/s/sheils/ese532_code/ese532_hw6_pfm/ese532_hw6_pfm.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/mnt/castor/seas_home/s/sheils/ese532_code/ese532_hw6_pfm/hw/ULTRA96V2.xsa'
+INFO: [v++ 60-629] Linking for hardware target
+INFO: [v++ 60-423]   Target device: ese532_hw6_pfm
+INFO: [v++ 60-1332] Run 'run_link' status: Not started
+INFO: [v++ 60-1443] [01:04:47] Run run_link: Step system_link: Started
+INFO: [v++ 60-1453] Command Line: system_link --xo /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xo -keep --config /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/syslinkConfig.ini --xpfm /mnt/castor/seas_home/s/sheils/ese532_code/ese532_hw6_pfm/ese532_hw6_pfm.xpfm --target hw --output_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int --temp_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+INFO: [SYSTEM_LINK 60-1316] Initiating connection to rulecheck server, at Tue Nov  3 01:04:49 2020
+INFO: [SYSTEM_LINK 82-70] Extracting xo v3 file /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xo
+INFO: [SYSTEM_LINK 82-53] Creating IP database /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-38] [01:04:50] build_xd_ip_db started: /mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/build_xd_ip_db -ip_search 0  -sds-pf /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/ULTRA96V2.hpfm -clkid 0 -ip /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/iprepo/xilinx_com_hls_mmult_fpga_1_0,mmult_fpga -o /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml
+INFO: [SYSTEM_LINK 82-37] [01:04:53] build_xd_ip_db finished successfully
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1428.727 ; gain = 0.000 ; free physical = 8705 ; free virtual = 15715
+INFO: [SYSTEM_LINK 82-51] Create system connectivity graph
+INFO: [SYSTEM_LINK 82-102] Applying explicit connections to the system connectivity graph: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [SYSTEM_LINK 82-38] [01:04:53] cfgen started: /mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/cfgen  -nk mmult_fpga:1:mmult_fpga_1 -dmclkid 0 -r /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml
+INFO: [CFGEN 83-0] Kernel Specs:
+INFO: [CFGEN 83-0]   kernel: mmult_fpga, num: 1  {mmult_fpga_1}
+INFO: [CFGEN 83-2226] Inferring mapping for argument mmult_fpga_1.A to HP0
+INFO: [CFGEN 83-2226] Inferring mapping for argument mmult_fpga_1.B to HP0
+INFO: [CFGEN 83-2226] Inferring mapping for argument mmult_fpga_1.C to HP0
+INFO: [SYSTEM_LINK 82-37] [01:04:53] cfgen finished successfully
+Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1428.727 ; gain = 0.000 ; free physical = 8704 ; free virtual = 15715
+INFO: [SYSTEM_LINK 82-52] Create top-level block diagram
+INFO: [SYSTEM_LINK 82-38] [01:04:53] cf2bd started: /mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/cf2bd  --linux --trace_buffer 1024 --input_file /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml --ip_db /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml --cf_name dr --working_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.xsd --temp_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link --output_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int
+INFO: [CF2BD 82-31] Launching cf2xd: cf2xd -linux -trace-buffer 1024 -i /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/cfgraph/cfgen_cfgraph.xml -r /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.cdb/xd_ip_db.xml -o dr.xml
+INFO: [CF2BD 82-28] cf2xd finished successfully
+INFO: [CF2BD 82-31] Launching cf_xsd: cf_xsd -disable-address-gen -dn dr -dp /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/sys_link/_sysl/.xsd
+INFO: [CF2BD 82-28] cf_xsd finished successfully
+INFO: [SYSTEM_LINK 82-37] [01:04:55] cf2bd finished successfully
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1428.727 ; gain = 0.000 ; free physical = 8700 ; free virtual = 15714
+INFO: [v++ 60-1441] [01:04:55] Run run_link: Step system_link: Completed
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 8727 ; free virtual = 15741
+INFO: [v++ 60-1443] [01:04:55] Run run_link: Step cf2sw: Started
+INFO: [v++ 60-1453] Command Line: cf2sw -sdsl /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/sdsl.dat -rtd /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/cf2sw.rtd -xclbin /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/xclbin_orig.xml -o /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/xclbin_orig.1.xml
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+INFO: [v++ 60-1441] [01:04:56] Run run_link: Step cf2sw: Completed
+Time (s): cpu = 00:00:00.57 ; elapsed = 00:00:00.73 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 8726 ; free virtual = 15740
+INFO: [v++ 60-1443] [01:04:56] Run run_link: Step rtd2_system_diagram: Started
+INFO: [v++ 60-1453] Command Line: rtd2SystemDiagram
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+INFO: [v++ 60-1441] [01:04:57] Run run_link: Step rtd2_system_diagram: Completed
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.96 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 8287 ; free virtual = 15301
+INFO: [v++ 60-1443] [01:04:57] Run run_link: Step vpl: Started
+INFO: [v++ 60-1453] Command Line: vpl -t hw -f ese532_hw6_pfm -g --profile_kernel data:all:all:all --remote_ip_cache /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/.ipcache -s --output_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int --log_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/logs/link --report_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/reports/link --config /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/vplConfig.ini -k /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link --no-info --iprepo /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/xo/ip_repo/xilinx_com_hls_mmult_fpga_1_0 --messageDb /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link/vpl.pb /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/dr.bd.tcl
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+
+****** vpl v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+INFO: [VPL 60-839] Read in kernel information from file '/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_info.dat'.
+INFO: [VPL 60-423]   Target device: ese532_hw6_pfm
+INFO: [VPL 60-1032] Extracting hardware platform to /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/vivado/vpl/.local/hw_platform
+[01:05:27] Run vpl: Step create_project: Started
+Creating Vivado project.
+[01:05:58] Run vpl: Step create_project: Completed
+[01:05:58] Run vpl: Step create_bd: Started
+[01:06:13] Run vpl: Step create_bd: Completed
+[01:06:13] Run vpl: Step update_bd: Started
+[01:06:20] Run vpl: Step update_bd: Completed
+[01:06:20] Run vpl: Step generate_target: Started
+[01:07:28] Run vpl: Step generate_target: Completed
+[01:07:28] Run vpl: Step config_hw_runs: Started
+[01:07:31] Run vpl: Step config_hw_runs: Completed
+[01:07:31] Run vpl: Step synth: Started
+[01:08:03] Block-level synthesis in progress, 0 of 1 jobs complete, 1 job running.
+[01:08:35] Block-level synthesis in progress, 0 of 1 jobs complete, 1 job running.
+[01:09:06] Block-level synthesis in progress, 0 of 1 jobs complete, 1 job running.
+[01:09:37] Block-level synthesis in progress, 0 of 1 jobs complete, 1 job running.
+[01:10:08] Run vpl: Step synth: Completed
+[01:10:08] Run vpl: Step impl: Started
+[01:12:46] Finished 2nd of 6 tasks (FPGA linking synthesized kernels to platform). Elapsed time: 00h 07m 47s
+
+[01:12:46] Starting logic optimization..
+[01:13:18] Phase 1 Retarget
+[01:13:18] Phase 2 Constant propagation
+[01:13:18] Phase 3 Sweep
+[01:13:18] Phase 4 BUFG optimization
+[01:13:18] Phase 5 Shift Register Optimization
+[01:13:18] Phase 6 Post Processing Netlist
+[01:14:21] Finished 3rd of 6 tasks (FPGA logic optimization). Elapsed time: 00h 01m 34s
+
+[01:14:21] Starting logic placement..
+[01:14:21] Phase 1 Placer Initialization
+[01:14:21] Phase 1.1 Placer Initialization Netlist Sorting
+[01:14:21] Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+[01:14:53] Phase 1.3 Build Placer Netlist Model
+[01:15:24] Phase 1.4 Constrain Clocks/Macros
+[01:15:24] Phase 2 Global Placement
+[01:15:24] Phase 2.1 Floorplanning
+[01:15:24] Phase 2.1.1 Partition Driven Placement
+[01:15:24] Phase 2.1.1.1 PBP: Partition Driven Placement
+[01:15:55] Phase 2.1.1.2 PBP: Clock Region Placement
+[01:15:55] Phase 2.1.1.3 PBP: Discrete Incremental
+[01:15:55] Phase 2.1.1.4 PBP: Compute Congestion
+[01:15:55] Phase 2.1.1.5 PBP: Macro Placement
+[01:15:55] Phase 2.1.1.6 PBP: UpdateTiming
+[01:15:55] Phase 2.1.1.7 PBP: Add part constraints
+[01:15:55] Phase 2.2 Global Placement Core
+[01:16:58] Phase 2.2.1 Physical Synthesis In Placer
+[01:16:58] Phase 3 Detail Placement
+[01:16:58] Phase 3.1 Commit Multi Column Macros
+[01:16:58] Phase 3.2 Commit Most Macros & LUTRAMs
+[01:16:58] Phase 3.3 Area Swap Optimization
+[01:16:58] Phase 3.4 Pipeline Register Optimization
+[01:16:58] Phase 3.5 Small Shape DP
+[01:16:58] Phase 3.5.1 Small Shape Clustering
+[01:17:29] Phase 3.5.2 Flow Legalize Slice Clusters
+[01:17:29] Phase 3.5.3 Slice Area Swap
+[01:18:00] Phase 3.6 Re-assign LUT pins
+[01:18:00] Phase 3.7 Pipeline Register Optimization
+[01:18:00] Phase 4 Post Placement Optimization and Clean-Up
+[01:18:00] Phase 4.1 Post Commit Optimization
+[01:18:00] Phase 4.1.1 Post Placement Optimization
+[01:18:00] Phase 4.1.1.1 BUFG Insertion
+[01:18:00] Phase 1 Physical Synthesis Initialization
+[01:18:32] Phase 4.2 Post Placement Cleanup
+[01:18:32] Phase 4.3 Placer Reporting
+[01:18:32] Phase 4.4 Final Placement Cleanup
+[01:19:03] Finished 4th of 6 tasks (FPGA logic placement). Elapsed time: 00h 04m 42s
+
+[01:19:03] Starting logic routing..
+[01:19:03] Phase 1 Build RT Design
+[01:19:03] Phase 2 Router Initialization
+[01:19:03] Phase 2.1 Create Timer
+[01:19:03] Phase 2.2 Fix Topology Constraints
+[01:19:03] Phase 2.3 Pre Route Cleanup
+[01:19:03] Phase 2.4 Global Clock Net Routing
+[01:19:34] Phase 2.5 Update Timing
+[01:20:06] Phase 2.6 Update Timing for Bus Skew
+[01:20:06] Phase 2.6.1 Update Timing
+[01:20:06] Phase 3 Initial Routing
+[01:20:37] Phase 4 Rip-up And Reroute
+[01:20:37] Phase 4.1 Global Iteration 0
+[01:23:16] Phase 4.2 Global Iteration 1
+[01:23:16] Phase 4.3 Global Iteration 2
+[01:23:16] Phase 5 Delay and Skew Optimization
+[01:23:16] Phase 5.1 Delay CleanUp
+[01:23:16] Phase 5.1.1 Update Timing
+[01:23:47] Phase 5.2 Clock Skew Optimization
+[01:23:47] Phase 6 Post Hold Fix
+[01:23:47] Phase 6.1 Hold Fix Iter
+[01:23:47] Phase 6.1.1 Update Timing
+[01:23:47] Phase 7 Route finalize
+[01:23:47] Phase 8 Verifying routed nets
+[01:23:47] Phase 9 Depositing Routes
+[01:23:47] Phase 10 Route finalize
+[01:23:47] Phase 11 Post Router Timing
+[01:24:19] Finished 5th of 6 tasks (FPGA routing). Elapsed time: 00h 05m 16s
+
+[01:24:19] Starting bitstream generation..
+[01:25:22] Creating bitmap...
+[01:25:22] Writing bitstream ./ULTRA96V2_wrapper.bit...
+[01:25:22] Finished 6th of 6 tasks (FPGA bitstream generation). Elapsed time: 00h 01m 02s
+[01:25:25] Run vpl: Step impl: Completed
+[01:25:26] Run vpl: FINISHED. Run Status: impl Complete!
+INFO: [v++ 60-1441] [01:25:27] Run run_link: Step vpl: Completed
+Time (s): cpu = 00:00:10 ; elapsed = 00:20:30 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7075 ; free virtual = 14624
+INFO: [v++ 60-1443] [01:25:27] Run run_link: Step rtdgen: Started
+INFO: [v++ 60-1453] Command Line: rtdgen
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+INFO: [v++ 60-1453] Command Line: cf2sw -a /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/address_map.xml -sdsl /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/sdsl.dat -xclbin /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/xclbin_orig.xml -rtd /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd -o /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.xml
+INFO: [v++ 60-1652] Cf2sw returned exit code: 0
+INFO: [v++ 60-2311] HPISystemDiagram::writeSystemDiagramAfterRunningVivado, rtdInputFilePath: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd
+INFO: [v++ 60-2312] HPISystemDiagram::writeSystemDiagramAfterRunningVivado, systemDiagramOutputFilePath: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/systemDiagramModelSlrBaseAddress.json
+INFO: [v++ 60-1618] Launching
+INFO: [v++ 60-1441] [01:25:27] Run run_link: Step rtdgen: Completed
+Time (s): cpu = 00:00:00.59 ; elapsed = 00:00:00.71 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7073 ; free virtual = 14621
+INFO: [v++ 60-1443] [01:25:27] Run run_link: Step xclbinutil: Started
+INFO: [v++ 60-1453] Command Line: xclbinutil --add-section DEBUG_IP_LAYOUT:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/debug_ip_layout.rtd --add-section BITSTREAM:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/system.bit --force --target hw --key-value SYS:dfx_enable:false --add-section :JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_xml.rtd --add-section BUILD_METADATA:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_build.rtd --add-section EMBEDDED_METADATA:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.xml --add-section SYSTEM_METADATA:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:avnet.com_ULTRA96V2_ULTRA96V2_1_0 --output /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xclbin
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/xclbinutil: line 49: /usr/bin/xclbinutil: No such file or directory
+INFO: [v++ 60-1442] [01:25:27] Run run_link: Step xclbinutil: Failed
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7073 ; free virtual = 14621
+ERROR: [v++ 60-661] v++ link run 'run_link' failed
+ERROR: [v++ 60-626] Kernel link failed to complete
+ERROR: [v++ 60-703] Failed to finish linking
+INFO: [v++ 60-1653] Closing dispatch client.
+make: *** [Makefile:109: kernel.xclbin] Error 1

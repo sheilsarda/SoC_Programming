@@ -77,7 +77,7 @@ void exec(  hls::stream<float> &inA,
 }
 
 void write( hls::stream<float> &outStream,
-            int *output,
+            float *output,
             unsigned int numInputs){
 
     for(unsigned int i = 0; i < numInputs; i++)
@@ -88,7 +88,13 @@ void write( hls::stream<float> &outStream,
 void mmult_fpga(float A[CHUNKS * N * N], float B[CHUNKS * N * N],
                 float C[CHUNKS * N * N]) {
 
-    #pragma HLS INTERFACE ap_ctrl_chain port=return bundle=control
+    // #pragma HLS INTERFACE ap_ctrl_chain port=return bundle=control
+
+    #pragma HLS INTERFACE m_axi port=A bundle=b0
+    #pragma HLS INTERFACE m_axi port=B bundle=b1
+    #pragma HLS INTERFACE m_axi port=C bundle=b2
+    #pragma HLS INTERFACE ap_ctrl_chain port=return
+
     #pragma HLS DATAFLOW
     hls::stream<float> inA;
     hls::stream<float> inB;

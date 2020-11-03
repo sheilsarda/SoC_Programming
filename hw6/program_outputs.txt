@@ -122,3 +122,109 @@ Writing output to output_fpga.bin  :    2.367 ms
 --------------- Total time ---------------
 Main program :  961.127 ms
 root@ultra96v2-2020-1:~/sd_card#
+
+
+=======================
+2K
+=======================
+
+sheil@sheil-VM:~/vitis$ platforminfo $PLATFORM_REPO_PATHS/ese532_hw6_pfm.xpfm
+==========================
+Basic Platform Information
+==========================
+Platform:           ese532_hw6_pfm
+File:               /home/sheil/ese532_hw6_pfm/ese532_hw6_pfm.xpfm
+Description:        
+ese532_hw6_pfm
+    
+
+=====================================
+Hardware Platform (Shell) Information
+=====================================
+Vendor:                           avnet.com
+Board:                            ULTRA96V2
+Name:                             ULTRA96V2
+Version:                          1.0
+Generated Version:                2020.1
+Software Emulation:               1
+Hardware Emulation:               0
+FPGA Family:                      zynquplus
+FPGA Device:                      xczu3eg
+Board Vendor:                     avnet.com
+Board Name:                       avnet.com:ultra96v2:1.1
+Board Part:                       xczu3eg-sbva484-1-i
+Maximum Number of Compute Units:  60
+
+=================
+Clock Information
+=================
+  Default Clock Index: 0
+  Clock Index:         0
+    Frequency:         150.000000
+  Clock Index:         1
+    Frequency:         300.000000
+  Clock Index:         2
+    Frequency:         75.000000
+  Clock Index:         3
+    Frequency:         100.000000
+  Clock Index:         4
+    Frequency:         200.000000
+  Clock Index:         5
+    Frequency:         400.000000
+  Clock Index:         6
+    Frequency:         600.000000
+
+=====================
+Resource Availability
+=====================
+  =====
+  Total
+  =====
+    LUTs:  57915
+    FFs:   126868
+    BRAMs: 212
+    DSPs:  360
+
+==================
+Memory Information
+==================
+  Bus SP Tag: HP0
+  Bus SP Tag: HP1
+  Bus SP Tag: HP2
+  Bus SP Tag: HP3
+  Bus SP Tag: HPC0
+  Bus SP Tag: HPC1
+=======================
+Feature ROM Information
+=======================
+
+=============================
+Software Platform Information
+=============================
+Number of Runtimes:            1
+Default System Configuration:  ese532_hw6_pfm
+System Configurations:
+  System Config Name:                      ese532_hw6_pfm
+  System Config Description:               ese532_hw6_pfm
+  System Config Default Processor Group:   linux_domain
+  System Config Default Boot Image:        standard
+  System Config Is QEMU Supported:         0
+  System Config Processor Groups:
+    Processor Group Name:      linux on psu_cortexa53
+    Processor Group CPU Type:  cortex-a53
+    Processor Group OS Name:   linux
+  System Config Boot Images:
+    Boot Image Name:           standard
+    Boot Image Type:           
+    Boot Image BIF:            ese532_hw6_pfm/boot/linux.bif
+    Boot Image Data:           ese532_hw6_pfm/linux_domain/image
+    Boot Image Boot Mode:      sd
+    Boot Image RootFileSystem: ese532_hw6_pfm/linux_domain/rootfs/rootfs.ext4
+    Boot Image Mount Path:     /mnt
+    Boot Image Read Me:        ese532_hw6_pfm/boot/generic.readme
+    Boot Image QEMU Args:      
+    Boot Image QEMU Boot:      
+    Boot Image QEMU Dev Tree:  
+Supported Runtimes:
+  Runtime: OpenCL
+
