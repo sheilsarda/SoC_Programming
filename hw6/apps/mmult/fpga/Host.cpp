@@ -106,12 +106,9 @@ int main(int argc, char *argv[]) {
                                            NUM_MAT*elements_per_iteration*sizeof(float));
   // 2L - Barrier synchronization
   // clFinish(CLScheduler::get().queue().get());
-  clFinish(device->getQueue());
-  // clFinish(q.get());
-  // clFinish(q);
+  clFinish(q.get());
 
 
-  
   timer2.add("Populating buffer inputs");
   init_arrays(&A, &B);
   
@@ -133,14 +130,14 @@ int main(int argc, char *argv[]) {
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
 
     // 2L - Barrier synchronization
-    clFinish(device->getQueue());
+    clFinish(q.get());
 
     exec_events.push_back(exec_ev);
     q.enqueueMigrateMemObjects({C_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
 
     // 2L - Barrier synchronization
-    clFinish(device->getQueue());
+    clFinish(q.get());
 
   }
 
