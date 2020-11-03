@@ -66,7 +66,6 @@ int main(int argc, char *argv[]) {
   size_t elements_per_iteration = CHUNKS * N * N;
   size_t bytes_per_iteration = elements_per_iteration * sizeof(float);
 
-  // cl::Buffer A_buf[NUM_MAT];
   cl::Buffer A_buf(context,
                  static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
                                            CL_MEM_ALLOC_HOST_PTR),
@@ -74,7 +73,6 @@ int main(int argc, char *argv[]) {
                  NULL,
                  NULL);
 
-  // cl::Buffer B_buf[NUM_MAT];
   cl::Buffer B_buf(context,
                  static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
                                            CL_MEM_ALLOC_HOST_PTR),
@@ -82,7 +80,6 @@ int main(int argc, char *argv[]) {
                  NULL,
                  NULL);
   
-  // cl::Buffer C_buf[NUM_MAT];
   cl::Buffer C_buf(context,
                  static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
                                            CL_MEM_ALLOC_HOST_PTR),
@@ -107,30 +104,12 @@ int main(int argc, char *argv[]) {
                                            CL_MAP_WRITE | CL_MAP_READ,
                                            0,
                                            NUM_MAT*elements_per_iteration*sizeof(float));
+  // 2L - Barrier synchronization
+  clFinish(A_buf);
+  clFinish(B_buf);
+  clFinish(C_buf);
 
 
-
-  for (int m = 0; m < NUM_MAT; m++) {
-  //   A[m] = (float *)malloc(bytes_per_iteration);
-  //   B[m] = (float *)malloc(bytes_per_iteration);
-  //   C[m] = (float *)malloc(bytes_per_iteration);
-  //   if (!A[m] || !B[m] || !C[m]) {
-  //     if (A[m])
-  //       free(A[m]);
-  //     if (B[m])
-  //       free(B[m]);
-  //     if (C[m])
-  //       free(C[m]);
-  //     return 2;
-  //   }
-
-    //A[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
-    //                 bytes_per_iteration, A[m], &err);
-    //B[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
-    //                 bytes_per_iteration, B[m], &err);
-    //C[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_WRITE_ONLY,
-    //                    bytes_per_iteration, C[m], &err);
-  }
   
   timer2.add("Populating buffer inputs");
   init_arrays(&A, &B);
@@ -151,9 +130,18 @@ int main(int argc, char *argv[]) {
                               &write_ev);
     write_events.push_back(write_ev);
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
+
+    // 2L - Barrier synchronization
+    clFinish(krnl_mmult);
+
     exec_events.push_back(exec_ev);
     q.enqueueMigrateMemObjects({C_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
+
+    // 2L - Barrier synchronization
+    clFinish(A_buf);
+    clFinish(B_buf);
+    clFinish(C_buf);
   }
 
 
@@ -165,9 +153,6 @@ int main(int argc, char *argv[]) {
   FILE *file = fopen("output_fpga.bin", "wb");
   for (int m = 0; m < NUM_MAT; m++) {
     fwrite((void *)((&C)[m]), 1, bytes_per_iteration, file);
-    // free(A[m]);
-    // free(B[m]);
-    // free(C[m]);
   }
   fclose(file);
 
