@@ -157,8 +157,12 @@ ERROR: [v++ 60-661] v++ link run 'run_link' failed
 ERROR: [v++ 60-626] Kernel link failed to complete
 ERROR: [v++ 60-703] Failed to finish linking
 
+------------------------------
+Simulation output throws 3 errors, none of which relate to Host.cpp or MMult.cpp
 
-
+ERROR: [HLS 207-3640] thread-local storage is not supported for the current target: /opt/Xilinx/Vivado/2020.1/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/mutex:580:10
+ERROR: [HLS 207-3640] thread-local storage is not supported for the current target: /opt/Xilinx/Vivado/2020.1/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/mutex:581:10
+ERROR: [HLS 207-2580] cannot use 'throw' with exceptions disabled: Downloads/Utilities.h:65:9
 
 =======================
 2K
