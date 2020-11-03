@@ -16,25 +16,22 @@
 #include "MMult.h"
 #include "Utilities.h"
 
-bool oooQueue = true;
-
 static void init_arrays(float *A[NUM_MAT],  
                         float *B[NUM_MAT])
 {
      for (int m = 0; m < NUM_MAT; m++) {
-      for (int c = 0; c < CHUNKS; c++) {
+    	for (int c = 0; c < CHUNKS; c++) {
           for (int i = 0; i < N; i++) {
                for (int j = 0; j < N; j++) {
                     A[m][ c * N * N + i * N + j] = 1+i*N+j;
                     B[m][ c * N * N + i * N + j] = rand() % (N * N);
                }
           }
-      }
+    	}
      }
 }
 
 int main(int argc, char *argv[]) {
-
   EventTimer timer1, timer2;
   timer1.add("Main program");
 
@@ -62,88 +59,60 @@ int main(int argc, char *argv[]) {
   // ------------------------------------------------------------------------------------
   timer2.add("Allocate contiguous OpenCL buffers");
   // Create the buffers and allocate memory
-
+  cl::Buffer A_buf[NUM_MAT];
+  cl::Buffer B_buf[NUM_MAT];
+  cl::Buffer C_buf[NUM_MAT];
+  float *A[NUM_MAT], *B[NUM_MAT], *C[NUM_MAT];
   size_t elements_per_iteration = CHUNKS * N * N;
   size_t bytes_per_iteration = elements_per_iteration * sizeof(float);
 
-  cl::Buffer A_buf(context,
-                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
-                                           CL_MEM_ALLOC_HOST_PTR),
-                 NUM_MAT*elements_per_iteration*sizeof(float),
-                 NULL,
-                 NULL);
+  for (int m = 0; m < NUM_MAT; m++) {
+    A[m] = (float *)malloc(bytes_per_iteration);
+    B[m] = (float *)malloc(bytes_per_iteration);
+    C[m] = (float *)malloc(bytes_per_iteration);
+    if (!A[m] || !B[m] || !C[m]) {
+      if (A[m])
+        free(A[m]);
+      if (B[m])
+        free(B[m]);
+      if (C[m])
+        free(C[m]);
+      return 2;
+    }
 
-  cl::Buffer B_buf(context,
-                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
-                                           CL_MEM_ALLOC_HOST_PTR),
-                 NUM_MAT*elements_per_iteration*sizeof(float),
-                 NULL,
-                 NULL);
+    A_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
+                     bytes_per_iteration, A[m], &err);
+    B_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_READ_ONLY,
+                     bytes_per_iteration, B[m], &err);
+    C_buf[m] = cl::Buffer(context, CL_MEM_USE_HOST_PTR | CL_MEM_WRITE_ONLY,
+                        bytes_per_iteration, C[m], &err);
+  }
   
-  cl::Buffer C_buf(context,
-                 static_cast<cl_mem_flags>(CL_MEM_READ_WRITE |
-                                           CL_MEM_ALLOC_HOST_PTR),
-                 NUM_MAT*elements_per_iteration*sizeof(float),
-                 NULL,
-                 NULL);  
-  
-  float *A = (float*)q.enqueueMapBuffer(A_buf,
-                                           CL_TRUE,
-                                           CL_MAP_WRITE | CL_MAP_READ,
-                                           0,
-                                           NUM_MAT*elements_per_iteration*sizeof(float));
-
-  float *B = (float*)q.enqueueMapBuffer(B_buf,
-                                           CL_TRUE,
-                                           CL_MAP_WRITE | CL_MAP_READ,
-                                           0,
-                                           NUM_MAT*elements_per_iteration*sizeof(float));
-  
-  float *C = (float*)q.enqueueMapBuffer(C_buf,
-                                           CL_TRUE,
-                                           CL_MAP_WRITE | CL_MAP_READ,
-                                           0,
-                                           NUM_MAT*elements_per_iteration*sizeof(float));
-
-
-
   timer2.add("Populating buffer inputs");
-  init_arrays(&A, &B);
+  init_arrays(A, B);
   
   // ------------------------------------------------------------------------------------
   // Step 3: Run the kernel
   // ------------------------------------------------------------------------------------
 
   timer2.add("Running kernel");
-  
-  int count = 0;
-  
   for (int i = 0; i < NUM_TESTS; i++) {
     std::vector<cl::Event> write_events, exec_events, read_events;
     cl::Event write_ev, exec_ev, read_ev;
 
-    krnl_mmult.setArg(0, A[i%NUM_MAT]);
-    krnl_mmult.setArg(1, B[i%NUM_MAT]);
-    krnl_mmult.setArg(2, C[i%NUM_MAT]);
-    q.enqueueMigrateMemObjects({ A_buf, B_buf}, 0 /* 0 means from host*/, NULL,
+    krnl_mmult.setArg(0, A_buf[i%NUM_MAT]);
+    krnl_mmult.setArg(1, B_buf[i%NUM_MAT]);
+    krnl_mmult.setArg(2, C_buf[i%NUM_MAT]);
+    q.enqueueMigrateMemObjects({A_buf[i%NUM_MAT], B_buf[i%NUM_MAT]}, 0 /* 0 means from host*/, NULL,
                               &write_ev);
     write_events.push_back(write_ev);
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
-
     exec_events.push_back(exec_ev);
-    q.enqueueMigrateMemObjects({C_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
+    q.enqueueMigrateMemObjects({C_buf[i%NUM_MAT]}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
-    
-    count++;
-    if(count == 3){
-      count = 0;
-      // 2L - Barrier synchronization
-      clFinish(q.get());
-    }
-
   }
 
-
+  q.finish();
   
   // ------------------------------------------------------------------------------------
   // Step 4: Release Allocated Resources
@@ -151,16 +120,13 @@ int main(int argc, char *argv[]) {
   timer2.add("Writing output to output_fpga.bin");
   FILE *file = fopen("output_fpga.bin", "wb");
   for (int m = 0; m < NUM_MAT; m++) {
-    fwrite((void *)((&C)[m]), 1, bytes_per_iteration, file);
+    fwrite(C[m], 1, bytes_per_iteration, file);
+    free(A[m]);
+    free(B[m]);
+    free(C[m]);
   }
   fclose(file);
 
-  q.enqueueUnmapMemObject(A_buf, A);
-  q.enqueueUnmapMemObject(B_buf, B);
-  q.enqueueUnmapMemObject(C_buf, C);
-
-  q.finish();
-  
   delete[] fileBuf;
   
   
