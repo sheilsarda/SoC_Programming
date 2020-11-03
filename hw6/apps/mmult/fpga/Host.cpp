@@ -16,6 +16,8 @@
 #include "MMult.h"
 #include "Utilities.h"
 
+bool oooQueue = true;
+
 static void init_arrays(float *A[NUM_MAT],  
                         float *B[NUM_MAT])
 {
