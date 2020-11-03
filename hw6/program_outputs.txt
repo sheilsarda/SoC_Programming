@@ -124,6 +124,42 @@ Main program :  961.127 ms
 root@ultra96v2-2020-1:~/sd_card#
 
 
+======================
+2J
+======================
+When running make kernel.xclbin or make fpga, the compilation process runs until it gets to the linking step, then quits with the following error. I searched through all the forums I could find online, as well as every single log in the _x directory to try and get more context about the problem, but was not able to resolve it.
+
+[01:24:19] Starting bitstream generation..
+[01:25:22] Creating bitmap...
+[01:25:22] Writing bitstream ./ULTRA96V2_wrapper.bit...
+[01:25:22] Finished 6th of 6 tasks (FPGA bitstream generation). Elapsed time: 00h 01m 02s 
+[01:25:25] Run vpl: Step impl: Completed
+[01:25:26] Run vpl: FINISHED. Run Status: impl Complete!
+INFO: [v++ 60-1441] [01:25:27] Run run_link: Step vpl: Completed
+Time (s): cpu = 00:00:10 ; elapsed = 00:20:30 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7075 ; free virtual = 14624
+INFO: [v++ 60-1443] [01:25:27] Run run_link: Step rtdgen: Started
+INFO: [v++ 60-1453] Command Line: rtdgen
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+INFO: [v++ 60-1453] Command Line: cf2sw -a /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/address_map.xml -sdsl /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/sdsl.dat -xclbin /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/xclbin_orig.xml -rtd /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd -o /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.xml
+INFO: [v++ 60-1652] Cf2sw returned exit code: 0
+INFO: [v++ 60-2311] HPISystemDiagram::writeSystemDiagramAfterRunningVivado, rtdInputFilePath: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd
+INFO: [v++ 60-2312] HPISystemDiagram::writeSystemDiagramAfterRunningVivado, systemDiagramOutputFilePath: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/systemDiagramModelSlrBaseAddress.json
+INFO: [v++ 60-1618] Launching 
+INFO: [v++ 60-1441] [01:25:27] Run run_link: Step rtdgen: Completed
+Time (s): cpu = 00:00:00.59 ; elapsed = 00:00:00.71 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7073 ; free virtual = 14621
+INFO: [v++ 60-1443] [01:25:27] Run run_link: Step xclbinutil: Started
+INFO: [v++ 60-1453] Command Line: xclbinutil --add-section DEBUG_IP_LAYOUT:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/debug_ip_layout.rtd --add-section BITSTREAM:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/system.bit --force --target hw --key-value SYS:dfx_enable:false --add-section :JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_xml.rtd --add-section BUILD_METADATA:JSON:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel_build.rtd --add-section EMBEDDED_METADATA:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/kernel.xml --add-section SYSTEM_METADATA:RAW:/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:avnet.com_ULTRA96V2_ULTRA96V2_1_0 --output /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xclbin
+INFO: [v++ 60-1454] Run Directory: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/_x/link/run_link
+/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/xclbinutil: line 49: /usr/bin/xclbinutil: No such file or directory
+INFO: [v++ 60-1442] [01:25:27] Run run_link: Step xclbinutil: Failed
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1329.320 ; gain = 0.000 ; free physical = 7073 ; free virtual = 14621
+ERROR: [v++ 60-661] v++ link run 'run_link' failed
+ERROR: [v++ 60-626] Kernel link failed to complete
+ERROR: [v++ 60-703] Failed to finish linking
+
+
+
+
 =======================
 2K
 =======================
@@ -228,3 +264,34 @@ System Configurations:
 Supported Runtimes:
   Runtime: OpenCL
 
+==========
+2L
+Note: Compiling host using old kernel.xclbin because I ran into the aforementioned issue when using the compile_on_biglab script to make fpga for 2J
+==========
+Since 2J failed before creating the bitstream, I am not able to compile this program because make host requires the kernel.xclbin bitstream. Hence, I will go back to the original kernel (from provided source code) to build this step since that is the only version of the kernel (MMult.cpp) that has built successfully on biglab.
+
+sheils@big16:~/ese532_code/hw6/apps/mmult> ./compile_on_biglab.sh
+
+****** v++ v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+INFO: [v++ 60-1306] Additional information associated with this v++ package can be found at:
+        Reports: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/package.build/reports/package
+        Log files: /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/package.build/logs/package
+INFO: [v++ 60-1657] Initializing dispatch client.
+Running Dispatch Server on port:39643
+INFO: [v++ 60-1548] Creating build summary session with primary output ./v++.package_summary, at Tue Nov  3 02:21:35 2020
+INFO: [v++ 60-1316] Initiating connection to rulecheck server, at Tue Nov  3 02:21:35 2020
+Running Rule Check Server on port:42059
+INFO: [v++ 60-1315] Creating rulecheck session with output '/mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/package.build/reports/package/v++_package_a_guidance.html', at Tue Nov  3 02:21:36 2020
+INFO: [v++ 60-895]   Target platform: /mnt/castor/seas_home/s/sheils/ese532_code/ese532_hw6_pfm/ese532_hw6_pfm.xpfm
+INFO: [v++ 60-1578]   This platform contains Xilinx Shell Archive '/mnt/castor/seas_home/s/sheils/ese532_code/ese532_hw6_pfm/hw/ULTRA96V2.xsa'
+INFO: [v++ 60-2256] Packaging for hardware
+/mnt/pollux/software/xilinx/2020.1/Vitis/2020.1/bin/xclbinutil: line 49: /usr/bin/xclbinutil: No such file or directory
+ERROR: [v++ 60-2246] Failed to find BITSTREAM section in /mnt/castor/seas_home/s/sheils/ese532_code/hw6/apps/mmult/kernel.xclbin
+ERROR: [v++ 60-702] Failed to finish packaging
+INFO: [v++ 60-1653] Closing dispatch client.
+make: [Makefile:68: host] Error 1 (ignored)
+
+-------------------
