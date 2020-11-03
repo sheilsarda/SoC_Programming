@@ -40,24 +40,24 @@ void exec(  hls::stream<float> &inA,
     for (int c = 0; c < CHUNKS; c++) {
         
         // inA to A_tmp
-        i = 0;
-        j = 0;
-        for (itr = 0; itr < N * N; ++itr) {
+        int i = 0;
+        int j = 0;
+        for (int itr = 0; itr < N * N; ++itr) {
             
             if(j == N) { j = 0; ++i}
-            pkt temp = inA.read();
-            A_tmp[i][j] = temp;
+            
+            A_tmp[i][j] = inA.read();
             ++j;
         }
         
         // inB to B_tmp
         i = 0;
         j = 0;
-        for (itr = 0; itr < N * N; ++itr) {
+        for (int itr = 0; itr < N * N; ++itr) {
             
             if(j == N) { j = 0; ++i}
-            pkt temp = inB.read();
-            B_tmp[i][j] = temp;
+            
+            B_tmp[i][j] = inB.read();
             ++j;
         }
 
@@ -88,7 +88,7 @@ void write( hls::stream<float> &outStream,
 void mmult_fpga(float A[CHUNKS * N * N], float B[CHUNKS * N * N],
                 float C[CHUNKS * N * N]) {
 
-    #pragma HLS INTERFACE ap_ctr_chain port=return bundle=control
+    #pragma HLS INTERFACE ap_ctrl_chain port=return bundle=control
     #pragma HLS DATAFLOW
     hls::stream<float> inA;
     hls::stream<float> inB;
