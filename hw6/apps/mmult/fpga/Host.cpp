@@ -104,9 +104,7 @@ int main(int argc, char *argv[]) {
                                            CL_MAP_WRITE | CL_MAP_READ,
                                            0,
                                            NUM_MAT*elements_per_iteration*sizeof(float));
-  // 2L - Barrier synchronization
-  // clFinish(CLScheduler::get().queue().get());
-  clFinish(q.get());
+
 
 
   timer2.add("Populating buffer inputs");
@@ -117,6 +115,9 @@ int main(int argc, char *argv[]) {
   // ------------------------------------------------------------------------------------
 
   timer2.add("Running kernel");
+  
+  int count = 0;
+  
   for (int i = 0; i < NUM_TESTS; i++) {
     std::vector<cl::Event> write_events, exec_events, read_events;
     cl::Event write_ev, exec_ev, read_ev;
@@ -129,15 +130,16 @@ int main(int argc, char *argv[]) {
     write_events.push_back(write_ev);
     q.enqueueTask(krnl_mmult, &write_events, &exec_ev);
 
-    // 2L - Barrier synchronization
-    clFinish(q.get());
-
     exec_events.push_back(exec_ev);
     q.enqueueMigrateMemObjects({C_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
     read_events.push_back(read_ev);
-
-    // 2L - Barrier synchronization
-    clFinish(q.get());
+    
+    count++;
+    if(count == 3){
+      count = 0;
+      // 2L - Barrier synchronization
+      clFinish(q.get());
+    }
 
   }
 
