@@ -24,7 +24,61 @@ void read(  const float *arrayA,
         inA.write(arrayA[i]);
         inB.write(arrayB[i]);
     }
+}
 
+
+void exec(  hls::stream<float> &inA,
+            hls::stream<float> &inB,
+            hls::stream<float> &outStream){
+    
+    float A_tmp[N][N];
+    float B_tmp[N][N];
+
+    for (int c = 0; c < CHUNKS; c++) {
+        
+        // inA to A_tmp
+        i = 0;
+        j = 0;
+        for (itr = 0; itr < N * N; ++itr) {
+            
+            if(j == N) { j = 0; ++i}
+            pkt temp = inA.read();
+            A_tmp[i][j] = temp;
+            ++j;
+        }
+        
+        // inB to B_tmp
+        i = 0;
+        j = 0;
+        for (itr = 0; itr < N * N; ++itr) {
+            
+            if(j == N) { j = 0; ++i}
+            pkt temp = inB.read();
+            B_tmp[i][j] = temp;
+            ++j;
+        }
+
+        // multiply
+        for(int i = 0; i < N; ++i){
+            for(int j = 0; j < N; ++j){
+                
+                float res = 0;
+                
+                for(int k = 0; k < N; ++k)
+                    res += A_tmp[i][k] * B_tmp[k][j];
+                
+                outStream.write(res);
+            }
+        }
+    }
+}
+
+void write( hls::stream<float> &outStream,
+            int *output,
+            int numInputs){
+
+    for(int i = 0; i < numInputs; i++)
+        output[i] = outStream.read();
 }
 
 
@@ -43,28 +97,5 @@ void mmult_fpga(float A[CHUNKS * N * N], float B[CHUNKS * N * N],
 
 
 
-// #pragma HLS array_partition variable=A_tmp block factor=16 dim=2
-// #pragma HLS array_partition variable=B_tmp block factor=16 dim=1
 
-//   for (int c = 0; c < CHUNKS; c++) {
-//     for (int i = 0; i < N; i++) {
-//       for (int j = 0; j < N; j++) {
-// #pragma HLS PIPELINE
-//         A_tmp[i][j] = A[c * N * N + i * N + j];
-//         B_tmp[i][j] = B[c * N * N + i * N + j];
-//       }
-//     }
-
-//     for (int i = 0; i < N; i++) {
-//       for (int j = 0; j < N; j++) {
-// #pragma HLS PIPELINE
-//         float result = 0;
-//         for (int k = 0; k < N; k++) {
-//           float term = A_tmp[i][k] * B_tmp[k][j];
-//           result += term;
-//         }
-//         C[c * N * N + i * N + j] = result;
-//       }
-//     }
-//   }
 
