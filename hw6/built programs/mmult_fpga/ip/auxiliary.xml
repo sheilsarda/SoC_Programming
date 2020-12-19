@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="mmult_fpga" xd:componentRef="mmult_fpga" xd:initiationInterval="3477" xd:clockPeriod="6.667" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
-  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
-  <xd:arg xd:name="*(A)" xd:originalName="A" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:dataPack="true" xd:bitMapping="511:0" xd:arraySize="64" xd:dataWidth="512" xd:bufferDirection="in"/>
-  <xd:arg xd:name="*(B)" xd:originalName="B" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:dataPack="true" xd:bitMapping="511:0" xd:arraySize="64" xd:dataWidth="512" xd:bufferDirection="in"/>
-  <xd:arg xd:name="*(C)" xd:originalName="C" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:dataPack="true" xd:bitMapping="511:0" xd:arraySize="64" xd:dataWidth="512" xd:bufferDirection="out"/>
-  <xd:latencyEstimates xd:best-case="3476" xd:worst-case="3476" xd:average-case="3476"/>
-  <xd:resourceEstimates xd:LUT="18544" xd:FF="61928" xd:BRAM="94" xd:DSP="160"/>
-</xd:acceleratorMap>
