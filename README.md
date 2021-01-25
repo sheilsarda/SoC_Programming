@@ -34,6 +34,13 @@ Be warned that this homework requires a number of full Vitis builds, each of whi
 
 We are delayed in pulling together this assignment and will be releasing it in segments so that you can go ahead and get started on the platform transition (F1 to Ultra96) and first parts of the assignment while we continue to debug and refine the later parts of the assignment.
 
+### [Final Project](https://www.seas.upenn.edu/~ese532/fall2020/project/project.pdf)
+
+Develop a compressor that can receive data in real time at modern ethernet speeds (1Gb/s) and compress it into memory using deduplication and compression. Specifically, we’ll look at Content-Defined Chunking to break the input into chunks, SHA-256 hashes to screen for duplicate chunks, and LZW compression to compress non-duplicate chunks. For full points,
+your goal for implementation is to achieve real-time guaranteed support of 1 Gb/s input stream, but you may need to consider intermediate goals (e.g. 100Mb/s, 300Mb/s) along the way.
+
+[Our Submission](https://github.com/sheilsarda/ESE532_Final_Project)
+
 ## Good self driven projects to reinforce course material
 
 From the TA and Professor:
