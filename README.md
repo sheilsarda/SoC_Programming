@@ -4,6 +4,36 @@ Sheil Sarda
 
 Taught by Prof. Andre DeHon, TA'ed by Syed Ahmed
 
+## Assignments Overview
+
+### [HW1: Hello AWS, Remember C](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw1/)
+
+This first assignment is designed to refresh your C knowledge and introduce you to the AWS Cloud which we will be using for the first half of the term.
+
+### [HW2: Profiling](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw2/)
+
+In this assignment, we will profile an application on an ARM core on AWS (same architecture as we will eventually use on the Zynq MPSoC UltraScale on the Ultra96-v2).
+
+### [HW3: Thread Parallel](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw3/)
+
+In this assignment, we will map the application from homework 2 on multiple ARM cores of the AWS A1 instance. We will explore different parallel implementations and analyze their impact on performance.
+
+### [HW4: SIMD](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw4/)
+
+In this assignment, we will accelerate the streaming application from last homework using the ARM NEON vector processor.
+
+### [HW5: Accelerator](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw5/)
+
+In this assignment, we will accelerate an application by implementing functions on the FPGA on the Amazon F1 Instance.
+
+### [HW6: Accelerator Interface](https://www.seas.upenn.edu/~ese532/fall2020/handouts/hw6/)
+
+In this assignment, we will accelerate an application by implementing functions on the programmable fabric of Ultra96.
+
+Be warned that this homework requires a number of full Vitis builds, each of which can easily take 20–30 minutes, so begin on time and plan your schedule accordingly.
+
+We are delayed in pulling together this assignment and will be releasing it in segments so that you can go ahead and get started on the platform transition (F1 to Ultra96) and first parts of the assignment while we continue to debug and refine the later parts of the assignment.
+
 ## Good self driven projects to reinforce course material
 
 From the TA and Professor:
