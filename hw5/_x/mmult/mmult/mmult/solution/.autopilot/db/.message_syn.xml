@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Messages>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;/home/centos/ESE532_Projects/hw5/hls/MatrixMultiplication.cpp&apos; ..." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-777]" key="HLS 200-777" tag="" content="Using interface defaults for &apos;Vitis&apos; target." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1629.340 ; gain = 1105.898 ; free physical = 59925 ; free virtual = 82462" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1629.340 ; gain = 1105.898 ; free physical = 59925 ; free virtual = 82462" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1493]" key="HLS 200-1493" tag="" content="Running only source code synthesis checks, skipping scheduling and RTL generation." resolution=""/>
-</Messages>

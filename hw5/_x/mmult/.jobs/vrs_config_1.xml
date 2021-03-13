@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="mmult" LaunchDir="/home/centos/ESE532_Projects/hw5/_x/mmult/mmult" FlowId="Build_IP" FromStepId="vitis_hls" ToStepId="vitis_hls"/>
-</Runs>
-
